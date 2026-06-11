@@ -4,32 +4,36 @@ import './Testimonials.css';
 
 const TESTIMONIALS = [
   {
-    type: 'Wedding',
-    quote: 'ROHIN transformed our wedding venue beautifully. Every detail, from the flowers to the stage lighting, felt elegant and well planned.',
-    name: 'Kavishan & Tharshini',
-    event: 'Wedding Reception, Jaffna',
+    type: 'Wedding Reception',
+    quote: 'Guests still talk about the floral stage and how polished the whole venue felt.',
+    name: 'K & T',
+    event: 'Nallur',
     initials: 'KT',
+    image: '/images/weddings/engagement-monogram-stage.jpeg',
   },
   {
-    type: 'Wedding',
-    quote: 'Our guests kept talking about the decoration. The setup looked premium, calm, and exactly like the mood we wanted.',
-    name: 'Suresh & Meena',
-    event: 'Homecoming Celebration, Nallur',
+    type: 'Wedding Reception',
+    quote: 'The lighting, floral framing, and seating layout made the venue feel complete before guests arrived.',
+    name: 'S & M',
+    event: 'Jaffna',
     initials: 'SM',
+    image: '/images/weddings/wedding-romantic-arch.jpeg',
   },
   {
-    type: 'Birthday',
-    quote: 'The birthday backdrop was beautiful and very neat. The colours, balloons, and photo area were perfect for our family celebration.',
-    name: 'Priyanka Rajan',
-    event: '1st Birthday Celebration, Jaffna',
+    type: 'First Birthday',
+    quote: 'The backdrop looked beautiful in photos and the setup felt neat from every angle.',
+    name: 'P & R Family',
+    event: 'Jaffna',
     initials: 'PR',
+    image: '/images/birthdays/birthday-bunny-garden.jpeg',
   },
   {
-    type: 'Birthday',
-    quote: 'ROHIN created a stylish birthday setup that looked modern and classy. The whole decoration felt special without being overdone.',
-    name: 'Abinaya Suthakaran',
-    event: '21st Birthday Celebration, Kokkuvil',
+    type: 'Milestone Birthday',
+    quote: 'We wanted something stylish and premium, and the finished setup felt exactly right for the celebration.',
+    name: 'A & S',
+    event: 'Kokkuvil',
     initials: 'AS',
+    image: '/images/birthdays/birthday-21-glow.jpeg',
   },
 ];
 
@@ -43,8 +47,8 @@ export default function Testimonials() {
           <p className="testimonials__eyebrow">Client Voices</p>
           <h2 className="testimonials__headline">What clients say after the event</h2>
           <p className="testimonials__sub">
-            Real feedback from wedding and birthday clients who wanted a decoration style that felt
-            premium, calm, and memorable.
+            Each testimonial is paired with the event type, location, and a setup image so visitors
+            can quickly judge the kind of celebrations ROHIN handles.
           </p>
         </div>
 
@@ -52,6 +56,7 @@ export default function Testimonials() {
           {TESTIMONIALS.map((item, index) => (
             <article className="testimonials__card" key={item.name} style={{ transitionDelay: `${index * 0.08}s` }}>
               <div className="testimonials__card-top">
+                <img className="testimonials__thumb" src={item.image} alt={`${item.type} setup in ${item.event}`} />
                 <div className="testimonials__avatar">{item.initials}</div>
                 <div>
                   <span className="testimonials__type">{item.type}</span>

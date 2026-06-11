@@ -1,4 +1,5 @@
 import React from 'react';
+import { CONTACT } from '../content/site';
 import './Footer.css';
 
 export default function Footer() {
@@ -17,40 +18,50 @@ export default function Footer() {
               <span className="footer__tagline">EVENT MANAGEMENT</span>
             </div>
           </div>
-          <p className="footer__copy-brand">Sculpting environments since 2012.</p>
+          <p className="footer__copy-brand">Creating memorable celebrations across Jaffna and Northern Sri Lanka.</p>
         </div>
 
         <div className="footer__nav">
-          {['Philosophy', 'Portfolio', 'Metamorphosis', 'Services', 'Contact'].map(l => (
+          {['Philosophy', 'Portfolio', 'Metamorphosis', 'Testimonials', 'Contact'].map((label) => (
             <button
-              key={l}
+              key={label}
               className="footer__link"
-              onClick={() => document.getElementById(l.toLowerCase())?.scrollIntoView({ behavior: 'smooth' })}
+              onClick={() => document.getElementById(label.toLowerCase())?.scrollIntoView({ behavior: 'smooth' })}
             >
-              {l}
+              {label}
             </button>
           ))}
         </div>
 
         <div className="footer__social">
-          <p className="footer__social-label">Contact Rohin</p>
+          <p className="footer__social-label">Location</p>
+          <p className="footer__social-copy">{CONTACT.location}</p>
+
+          <p className="footer__social-label footer__social-label--spaced">Services</p>
+          <div className="footer__service-list">
+            <span>Wedding Decoration</span>
+            <span>Birthday Decoration</span>
+            <span>Private Celebrations</span>
+          </div>
+
+          <p className="footer__social-label footer__social-label--spaced">Contact</p>
           <div className="footer__social-links">
-            <a href="mailto:eventbyrohinprivateltd@gmail.com" className="footer__social-link">
-              eventbyrohinprivateltd@gmail.com
+            <a href={CONTACT.whatsappUrl} target="_blank" rel="noopener noreferrer" className="footer__social-link">
+              WhatsApp
             </a>
-            <a href="tel:+94767171454" className="footer__social-link">
-              +94 76 717 1454
+            <a href={CONTACT.facebookUrl} target="_blank" rel="noopener noreferrer" className="footer__social-link">
+              Facebook
             </a>
-            <a href="https://www.facebook.com/search/top/?q=Event%20by%20Rohin%20at%20jaffna" target="_blank" rel="noopener noreferrer" className="footer__social-link">
-              Event by Rohin at jaffna
+            <a href={CONTACT.instagramUrl} target="_blank" rel="noopener noreferrer" className="footer__social-link">
+              Instagram
             </a>
           </div>
         </div>
       </div>
 
       <div className="footer__bottom">
-        <p>© {new Date().getFullYear()} Rohin Event Management. All rights reserved.</p>
-        <p>Jaffna, Sri Lanka</p>
+        <p>Copyright {new Date().getFullYear()} Rohin Event Management. All rights reserved.</p>
+        <p>{CONTACT.location}</p>
       </div>
     </footer>
   );

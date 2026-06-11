@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import WebGLHero from './WebGLHero';
+import { CTA_SUPPORT, CONTACT } from '../content/site';
 import './Hero.css';
 
 export default function Hero() {
@@ -34,19 +35,23 @@ export default function Hero() {
         </h1>
 
         <p className="hero__sub">
-          We design elegant event spaces in Jaffna with refined floral styling, stage concepts,
-          lighting, and complete event atmosphere.
+          ROHIN handles luxury wedding decoration, birthday setups, and private celebration styling
+          across Jaffna and Northern Sri Lanka with real venue experience, floral staging, lighting,
+          and complete event atmosphere planning.
         </p>
 
         <div className="hero__actions">
           <a
-            href="https://wa.me/94767171454?text=Hello%20Rohin,%20I%27d%20like%20to%20start%20my%20event%20inquiry."
+            href={CONTACT.whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="hero__btn hero__btn--primary"
           >
-            <span>Start Your Event Inquiry</span>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+            <span className="hero__btn-copy">
+              <span>Check Event Availability</span>
+              <span className="hero__btn-note">{CTA_SUPPORT}</span>
+            </span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
               <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </a>
@@ -57,16 +62,16 @@ export default function Hero() {
 
         <div className="hero__ledger" aria-label="Studio profile">
           <div className="hero__ledger-item">
-            <span className="hero__ledger-label">Services</span>
-            <span className="hero__ledger-value">Wedding, birthday, and private event decoration</span>
+            <span className="hero__ledger-label">What We Style</span>
+            <span className="hero__ledger-value">Wedding receptions, birthdays, and private celebrations</span>
           </div>
           <div className="hero__ledger-item">
-            <span className="hero__ledger-label">Speciality</span>
-            <span className="hero__ledger-value">Floral styling, stage concepts, lighting, and full event atmosphere</span>
+            <span className="hero__ledger-label">Why Clients Book</span>
+            <span className="hero__ledger-value">One team for floral styling, stage concepts, lighting, and event-ready setup</span>
           </div>
           <div className="hero__ledger-item">
-            <span className="hero__ledger-label">Location</span>
-            <span className="hero__ledger-value">Premium event decoration in Jaffna and nearby areas</span>
+            <span className="hero__ledger-label">Where We Work</span>
+            <span className="hero__ledger-value">Serving Jaffna and the wider Northern Province with celebration-focused event styling</span>
           </div>
         </div>
       </div>

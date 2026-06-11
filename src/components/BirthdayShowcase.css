@@ -298,6 +298,21 @@
   transition: transform 180ms ease, background 180ms ease;
 }
 
+.birthday-showcase__cta-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.birthday-showcase__cta-note {
+  font-size: 0.74rem;
+  line-height: 1.35;
+  text-transform: none;
+  letter-spacing: 0.02em;
+  color: rgba(255, 244, 232, 0.88);
+}
+
 .birthday-showcase__cta:hover {
   transform: translateY(-2px);
   background: #3c2719;
@@ -362,5 +377,41 @@
 
   .birthday-showcase__summary span:last-child {
     font-size: 1.35rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .birthday-showcase__filters {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.65rem;
+  }
+
+  .birthday-showcase__filter {
+    width: 100%;
+    text-align: center;
+    padding: 0.75rem 0.85rem;
+    font-size: 0.82rem;
+  }
+
+  .birthday-showcase__highlight-copy {
+    padding: 1.25rem;
+    border-radius: 1.4rem;
+  }
+
+  .birthday-showcase__highlight-copy h3 {
+    font-size: 2rem;
+  }
+
+  .birthday-showcase__highlight-media {
+    min-height: 18rem;
+    border-radius: 1.4rem;
+  }
+
+  .birthday-showcase__card--large .birthday-showcase__frame,
+  .birthday-showcase__card--wide .birthday-showcase__frame,
+  .birthday-showcase__card--medium .birthday-showcase__frame,
+  .birthday-showcase__card--small .birthday-showcase__frame {
+    min-height: 16rem;
   }
 }

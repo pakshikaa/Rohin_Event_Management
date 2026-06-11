@@ -104,6 +104,8 @@
 }
 
 .nav__cta {
+  display: inline-flex;
+  align-items: center;
   font-family: var(--font-body);
   font-size: 0.65rem;
   font-weight: 400;
@@ -114,6 +116,21 @@
   text-transform: uppercase;
   padding: 10px 22px;
   transition: background 0.3s, transform 0.2s;
+}
+
+.nav__cta-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.18rem;
+}
+
+.nav__cta-note {
+  font-size: 0.58rem;
+  letter-spacing: 0.03em;
+  line-height: 1.35;
+  opacity: 0.88;
+  text-transform: none;
 }
 
 .nav__cta:hover {
@@ -148,15 +165,20 @@
   flex-direction: column;
   background: rgba(11, 11, 11, 0.98);
   border-top: 1px solid var(--gold-border);
-  padding: 2rem 3rem 3rem;
+  padding: 0 1.5rem;
   gap: 1.5rem;
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.5s var(--ease-luxury);
+  opacity: 0;
+  pointer-events: none;
+  transition: max-height 0.5s var(--ease-luxury), opacity 0.3s ease, padding 0.3s ease;
 }
 
 .nav__mobile.open {
-  max-height: 500px;
+  max-height: calc(100svh - 72px);
+  opacity: 1;
+  pointer-events: auto;
+  padding: 1.4rem 1.5rem 2rem;
 }
 
 .nav__mobile-link {
@@ -176,6 +198,8 @@
 }
 
 .nav__mobile-cta {
+  display: flex;
+  flex-direction: column;
   font-family: var(--font-body);
   font-size: 0.7rem;
   letter-spacing: 0.25em;
@@ -187,14 +211,46 @@
   padding-top: 1.5rem;
 }
 
+.nav__mobile-cta-main {
+  font-size: 0.76rem;
+  line-height: 1.35;
+}
+
+.nav__mobile-cta-note {
+  margin-top: 0.35rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  line-height: 1.45;
+  text-transform: none;
+  color: rgba(245, 240, 232, 0.82);
+}
+
 @media (max-width: 900px) {
   .nav {
-    padding: 0 1.5rem;
+    padding: 0 1rem;
+    background: rgba(11, 11, 11, 0.88);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(212, 175, 55, 0.12);
   }
 
   .nav__logo-mark {
-    width: 48px;
-    height: 48px;
+    width: 44px;
+    height: 44px;
+  }
+
+  .nav__logo-copy {
+    gap: 1px;
+  }
+
+  .nav__logo-rohin {
+    font-size: 1.35rem;
+    letter-spacing: 0.18em;
+  }
+
+  .nav__logo-sub {
+    font-size: 0.5rem;
+    letter-spacing: 0.28em;
   }
 
   .nav__links, .nav__cta {
@@ -207,5 +263,33 @@
 
   .nav__mobile {
     display: flex;
+  }
+}
+
+@media (max-width: 520px) {
+  .nav__inner {
+    height: 68px;
+  }
+
+  .nav__mobile.open {
+    max-height: calc(100svh - 68px);
+    padding: 1.2rem 1rem 1.75rem;
+  }
+
+  .nav__mobile-link {
+    font-size: 1.45rem;
+  }
+
+  .nav__mobile-cta {
+    font-size: 0.64rem;
+    letter-spacing: 0.18em;
+  }
+
+  .nav__mobile-cta-main {
+    font-size: 0.68rem;
+  }
+
+  .nav__mobile-cta-note {
+    font-size: 0.68rem;
   }
 }

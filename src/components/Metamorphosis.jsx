@@ -165,14 +165,39 @@ export default function Metamorphosis() {
 
         <Slider pair={PAIRS[active]} />
 
+        <div className="meta__mobile-details" aria-hidden="true">
+          <div className="meta__mobile-card">
+            <span className="meta__brief-kicker">{PAIRS[active].beforeTitle}</span>
+            <h3>{PAIRS[active].title}</h3>
+            <p>{PAIRS[active].brief}</p>
+            <ul className="meta__brief-list">
+              {PAIRS[active].notes.map((note) => (
+                <li key={note}>{note}</li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="meta__mobile-card meta__mobile-card--gold">
+            <span className="meta__proof-badge">ROHIN Transformation</span>
+            <h3>{PAIRS[active].afterLabel}</h3>
+            <p>{PAIRS[active].proof}</p>
+            <div className="meta__result-list">
+              {PAIRS[active].resultPoints.map((point) => (
+                <span key={point} className="meta__result-pill">{point}</span>
+              ))}
+            </div>
+          </div>
+        </div>
+
         <div className="meta__footnote">
           <span>Left shows the idea before styling. Right shows the final decorated result.</span>
           <a
-            href="https://wa.me/94767171454?text=I%27d%20like%20to%20discuss%20transforming%20my%20venue."
+            href="https://wa.me/94767171454?text=Hello%20Rohin,%20I%27d%20like%20to%20check%20event%20availability%20for%20my%20date%2C%20venue%2C%20and%20celebration."
             target="_blank"
             rel="noopener noreferrer"
           >
-            Start your transformation →
+            <span className="meta__footnote-cta">Check Event Availability</span>
+            <span className="meta__footnote-note">Tell us your event date, venue, and celebration type.</span>
           </a>
         </div>
       </div>

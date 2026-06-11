@@ -3,6 +3,7 @@ import Cursor from './components/Cursor';
 import GoldDust from './components/GoldDust';
 import Nav from './components/Nav';
 import Hero from './components/Hero';
+import TrustStrip from './components/TrustStrip';
 import Philosophy from './components/Philosophy';
 import Portfolio from './components/Portfolio';
 import BirthdayShowcase from './components/BirthdayShowcase';
@@ -28,12 +29,13 @@ export default function App() {
       {/* Main content */}
       <main>
         <Hero />
-        <Philosophy />
-        <Metamorphosis />
+        <TrustStrip />
         <Portfolio />
-        <BirthdayShowcase />
-        <Services />
         <Testimonials />
+        <BirthdayShowcase />
+        <Metamorphosis />
+        <Services />
+        <Philosophy />
         <Contact />
       </main>
 

@@ -85,6 +85,15 @@
   gap: 1rem;
 }
 
+.testimonials__thumb {
+  width: 76px;
+  height: 76px;
+  object-fit: cover;
+  border-radius: 1rem;
+  border: 1px solid rgba(212, 175, 55, 0.14);
+  flex-shrink: 0;
+}
+
 .testimonials__avatar {
   width: 48px;
   height: 48px;
@@ -135,5 +144,10 @@
 
   .testimonials__grid {
     grid-template-columns: 1fr;
+  }
+
+  .testimonials__thumb {
+    width: 64px;
+    height: 64px;
   }
 }

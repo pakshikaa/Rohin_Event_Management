@@ -359,14 +359,34 @@
 }
 
 .meta__footnote a {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
   color: var(--gold);
   text-decoration: none;
   letter-spacing: 0.05em;
   transition: opacity 0.2s;
 }
 
+.meta__footnote-cta {
+  text-transform: uppercase;
+}
+
+.meta__footnote-note {
+  margin-top: 0.25rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.02em;
+  line-height: 1.45;
+  text-transform: none;
+  color: var(--ivory-dim);
+}
+
 .meta__footnote a:hover {
   opacity: 0.75;
+}
+
+.meta__mobile-details {
+  display: none;
 }
 
 @media (max-width: 900px) {
@@ -390,8 +410,32 @@
 }
 
 @media (max-width: 640px) {
+  .meta__tabs {
+    gap: 0.55rem;
+    justify-content: stretch;
+  }
+
+  .meta__tab {
+    flex: 1 1 0;
+    min-width: 0;
+    padding: 0.8rem 0.9rem;
+    font-size: 0.64rem;
+    letter-spacing: 0.14em;
+  }
+
   .meta__slider {
     height: 440px;
+    touch-action: pan-y;
+  }
+
+  .meta__side {
+    padding: 1rem;
+  }
+
+  .meta__brief-card,
+  .meta__proof-card {
+    max-width: 100%;
+    width: 100%;
   }
 
   .meta__brief-card h3,
@@ -403,6 +447,11 @@
   .meta__proof-card p,
   .meta__brief-list li {
     font-size: 0.82rem;
+  }
+
+  .meta__corner-label {
+    font-size: 0.65rem;
+    padding: 0.45rem 0.7rem;
   }
 
   .meta__result-list {
@@ -419,7 +468,97 @@
   }
 
   .meta__footnote {
+    gap: 0.65rem;
+  }
+
+  .meta__footnote {
     flex-direction: column;
     text-align: center;
+  }
+
+  .meta__footnote a {
+    align-items: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .meta {
+    padding: 4rem 1rem;
+  }
+
+  .meta__slider {
+    height: 320px;
+    border-radius: 1.4rem;
+  }
+
+  .meta__handle-knob {
+    width: 44px;
+    height: 44px;
+  }
+
+  .meta__side {
+    padding: 0.85rem;
+    justify-content: space-between;
+  }
+
+  .meta__corner-label,
+  .meta__side-label {
+    display: none;
+  }
+
+  .meta__brief-card,
+  .meta__proof-card {
+    display: none;
+  }
+
+  .meta__mobile-details {
+    display: grid;
+    gap: 0.9rem;
+    margin-top: 1rem;
+  }
+
+  .meta__mobile-card {
+    padding: 1rem;
+    border-radius: 1.2rem;
+    background: rgba(34, 28, 24, 0.44);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .meta__mobile-card--gold {
+    background: rgba(20, 34, 27, 0.36);
+    border-color: rgba(212, 175, 55, 0.16);
+  }
+
+  .meta__mobile-card h3 {
+    font-family: var(--font-display);
+    font-size: 1.45rem;
+    font-weight: 400;
+    line-height: 1;
+    margin: 0 0 0.7rem;
+    color: var(--ivory);
+  }
+
+  .meta__mobile-card p,
+  .meta__mobile-card .meta__brief-list li {
+    font-size: 0.8rem;
+    line-height: 1.65;
+  }
+
+  .meta__mobile-card .meta__brief-list {
+    margin-top: 0.8rem;
+  }
+
+  .meta__mobile-card .meta__result-list {
+    margin-top: 0.85rem;
+    justify-content: flex-start;
+  }
+
+  .meta__mobile-card .meta__result-pill {
+    font-size: 0.66rem;
+    letter-spacing: 0.08em;
+  }
+
+  .meta__footnote {
+    margin-top: 1.5rem;
   }
 }

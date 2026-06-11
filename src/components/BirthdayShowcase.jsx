@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
 import { useInView } from '../hooks/useInView';
+import { CTA_SUPPORT, CONTACT } from '../content/site';
 import './BirthdayShowcase.css';
 
-const CATEGORIES = ['All', 'First Birthday', 'Kids Theme', 'Luxury', 'Outdoor'];
+const CATEGORIES = ['All', 'First Birthday', 'Kids Birthday', 'Milestone Birthday', 'Luxury Birthday Celebration'];
 
 const ITEMS = [
   {
     id: 1,
     title: 'Midnight Luxe Stage',
-    category: 'Luxury',
+    category: 'Luxury Birthday Celebration',
     tag: 'Black, silver, candles, mirrored cake wall',
     size: 'large',
     image: '/images/birthdays/birthday-black-silver.jpeg',
@@ -18,7 +19,7 @@ const ITEMS = [
   {
     id: 2,
     title: 'Bunny Garden World',
-    category: 'Kids Theme',
+    category: 'Kids Birthday',
     tag: 'Storybook setup for a soft first birthday',
     size: 'wide',
     image: '/images/birthdays/birthday-bunny-garden.jpeg',
@@ -38,7 +39,7 @@ const ITEMS = [
   {
     id: 4,
     title: 'Ocean Blue Birthday',
-    category: 'Kids Theme',
+    category: 'Kids Birthday',
     tag: 'Underwater styling with cake islands',
     size: 'medium',
     image: '/images/birthdays/birthday-ocean-theme.jpeg',
@@ -68,7 +69,7 @@ const ITEMS = [
   {
     id: 7,
     title: 'Wild Safari Setup',
-    category: 'Kids Theme',
+    category: 'Kids Birthday',
     tag: 'Lion king palette with layered cut-outs',
     size: 'large',
     image: '/images/birthdays/birthday-safari.jpeg',
@@ -78,7 +79,7 @@ const ITEMS = [
   {
     id: 8,
     title: 'Jungle Luxe Cake Stage',
-    category: 'Luxury',
+    category: 'Luxury Birthday Celebration',
     tag: 'Statement balloons, foliage, and premium staging',
     size: 'medium',
     image: '/images/birthdays/birthday-jungle-luxe.jpeg',
@@ -88,7 +89,7 @@ const ITEMS = [
   {
     id: 9,
     title: 'Glow 21 Celebration',
-    category: 'Luxury',
+    category: 'Milestone Birthday',
     tag: 'Milestone birthday with illuminated numerals',
     size: 'medium',
     image: '/images/birthdays/birthday-21-glow.jpeg',
@@ -98,7 +99,7 @@ const ITEMS = [
   {
     id: 10,
     title: 'Beach Birthday Arch',
-    category: 'Outdoor',
+    category: 'Luxury Birthday Celebration',
     tag: 'Sunset birthday portrait point by the shore',
     size: 'wide',
     image: '/images/birthdays/birthday-beach-arch.jpeg',
@@ -126,19 +127,19 @@ export default function BirthdayShowcase() {
         <div className="birthday-showcase__copy">
           <p className="birthday-showcase__eyebrow">Birthday Collections</p>
           <h2 className="birthday-showcase__headline">
-            Birthday setups selected
+            Birthday celebration setups
             <br />
-            <em>for a balanced landing page view.</em>
+            <em>for first birthdays, kids parties, and milestone nights.</em>
           </h2>
           <p className="birthday-showcase__sub">
-            We are showing a focused birthday selection on the landing page so clients get variety,
-            theme range, and stronger visual proof without repeated images.
+            Browse birthday setups by celebration type so you can quickly judge the mood, finish,
+            and event atmosphere that fits your family celebration.
           </p>
         </div>
 
         <div className="birthday-showcase__summary">
-          <span>{filtered.length} birthday visuals on landing</span>
-          <span>{active === 'All' ? 'First birthdays to milestone nights' : active}</span>
+          <span>{filtered.length} featured birthday setups</span>
+          <span>{active === 'All' ? 'First birthdays to milestone celebrations' : active}</span>
         </div>
       </div>
 
@@ -157,7 +158,7 @@ export default function BirthdayShowcase() {
       {highlight ? (
         <article className="birthday-showcase__highlight">
           <div className="birthday-showcase__highlight-copy">
-            <span className="birthday-showcase__highlight-label">Featured mood</span>
+            <span className="birthday-showcase__highlight-label">Featured setup</span>
             <h3>{highlight.title}</h3>
             <p>{highlight.tag}</p>
           </div>
@@ -201,16 +202,19 @@ export default function BirthdayShowcase() {
 
       <div className="birthday-showcase__footer">
         <p>
-          Need a custom birthday concept for a child, teen, or milestone celebration? We can
-          build around a theme, venue size, and cake moment.
+          Need a custom birthday setup for a child, teen, or milestone celebration? We can build
+          around your venue, theme direction, and cake moment.
         </p>
         <a
-          href="https://wa.me/94767171454?text=I%27d%20like%20to%20discuss%20a%20custom%20birthday%20concept."
+          href={CONTACT.whatsappUrl}
           target="_blank"
           rel="noopener noreferrer"
           className="birthday-showcase__cta"
         >
-          Plan a Birthday Setup
+          <span className="birthday-showcase__cta-copy">
+            <span>Check Event Availability</span>
+            <span className="birthday-showcase__cta-note">{CTA_SUPPORT}</span>
+          </span>
         </a>
       </div>
     </section>
