@@ -1,0 +1,366 @@
+.birthday-showcase {
+  position: relative;
+  padding: 1rem 6vw 7rem;
+  background:
+    radial-gradient(circle at top left, rgba(244, 203, 165, 0.18), transparent 32%),
+    linear-gradient(180deg, rgba(251, 246, 238, 0.98), rgba(244, 235, 224, 0.94));
+}
+
+.birthday-showcase__intro,
+.birthday-showcase__filters,
+.birthday-showcase__highlight,
+.birthday-showcase__grid,
+.birthday-showcase__footer {
+  max-width: 1360px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.birthday-showcase__intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(18rem, 0.65fr);
+  gap: 2rem;
+  align-items: end;
+  margin-bottom: 2rem;
+}
+
+.birthday-showcase__eyebrow {
+  margin: 0 0 1rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: rgba(78, 58, 36, 0.68);
+}
+
+.birthday-showcase__headline {
+  margin: 0;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.4rem, 5vw, 4.25rem);
+  line-height: 0.98;
+  color: #25180f;
+}
+
+.birthday-showcase__headline em {
+  font-style: italic;
+  font-weight: 500;
+  color: #7d5f43;
+}
+
+.birthday-showcase__sub {
+  max-width: 52rem;
+  margin: 1.2rem 0 0;
+  font-size: 1rem;
+  line-height: 1.8;
+  color: rgba(49, 34, 19, 0.74);
+}
+
+.birthday-showcase__summary {
+  display: grid;
+  gap: 0.7rem;
+  padding: 1.4rem 1.5rem;
+  border: 1px solid rgba(113, 82, 48, 0.14);
+  border-radius: 1.8rem;
+  background: rgba(255, 252, 246, 0.72);
+  box-shadow: 0 20px 40px rgba(90, 68, 41, 0.08);
+}
+
+.birthday-showcase__summary span:first-child {
+  font-size: 0.82rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(92, 69, 42, 0.66);
+}
+
+.birthday-showcase__summary span:last-child {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.7rem;
+  line-height: 1.1;
+  color: #2f2014;
+}
+
+.birthday-showcase__filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-bottom: 1.5rem;
+}
+
+.birthday-showcase__filter {
+  padding: 0.75rem 1.15rem;
+  border: 1px solid rgba(92, 69, 42, 0.14);
+  border-radius: 999px;
+  background: rgba(255, 251, 246, 0.76);
+  color: #4d3720;
+  font-size: 0.92rem;
+  cursor: pointer;
+  transition: transform 180ms ease, background 180ms ease, color 180ms ease, border-color 180ms ease;
+}
+
+.birthday-showcase__filter:hover,
+.birthday-showcase__filter.active {
+  transform: translateY(-2px);
+  background: #3e2918;
+  color: #fff3ea;
+  border-color: #3e2918;
+}
+
+.birthday-showcase__highlight {
+  display: grid;
+  grid-template-columns: minmax(18rem, 0.7fr) minmax(0, 1.3fr);
+  gap: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.birthday-showcase__highlight-copy,
+.birthday-showcase__highlight-media,
+.birthday-showcase__frame {
+  border-radius: 2rem;
+  overflow: hidden;
+}
+
+.birthday-showcase__highlight-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.95rem;
+  padding: 2rem;
+  background:
+    radial-gradient(circle at top left, rgba(188, 122, 56, 0.16), transparent 32%),
+    rgba(255, 248, 241, 0.92);
+  border: 1px solid rgba(115, 83, 47, 0.12);
+}
+
+.birthday-showcase__highlight-label {
+  font-size: 0.72rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: rgba(77, 55, 32, 0.62);
+}
+
+.birthday-showcase__highlight-copy h3 {
+  margin: 0;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.1rem, 4vw, 3.3rem);
+  line-height: 0.94;
+  color: #2e1f13;
+}
+
+.birthday-showcase__highlight-copy p {
+  margin: 0;
+  line-height: 1.75;
+  color: rgba(49, 34, 19, 0.72);
+}
+
+.birthday-showcase__highlight-media {
+  min-height: 29rem;
+  box-shadow: 0 24px 56px rgba(96, 69, 36, 0.12);
+}
+
+.birthday-showcase__highlight-media img,
+.birthday-showcase__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.birthday-showcase__grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.birthday-showcase__card {
+  display: grid;
+  gap: 0.85rem;
+  opacity: 0;
+  transform: translateY(36px);
+  transition: transform 0.7s ease, opacity 0.7s ease;
+}
+
+.birthday-showcase__grid.visible .birthday-showcase__card {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.birthday-showcase__card--large {
+  grid-column: span 6;
+}
+
+.birthday-showcase__card--wide {
+  grid-column: span 8;
+}
+
+.birthday-showcase__card--medium,
+.birthday-showcase__card--small {
+  grid-column: span 4;
+}
+
+.birthday-showcase__card--large .birthday-showcase__frame {
+  min-height: 25rem;
+}
+
+.birthday-showcase__card--wide .birthday-showcase__frame {
+  min-height: 22rem;
+}
+
+.birthday-showcase__card--medium .birthday-showcase__frame {
+  min-height: 20rem;
+}
+
+.birthday-showcase__card--small .birthday-showcase__frame {
+  min-height: 18rem;
+}
+
+.birthday-showcase__frame {
+  position: relative;
+  background: #eadccc;
+  box-shadow: 0 18px 42px rgba(43, 28, 15, 0.1);
+}
+
+.birthday-showcase__frame::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.birthday-showcase__image {
+  transform: scale(1.01);
+  transition: transform 0.45s ease;
+}
+
+.birthday-showcase__card:hover .birthday-showcase__image {
+  transform: scale(1.05);
+}
+
+.birthday-showcase__wash {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(18, 12, 8, 0.04), rgba(18, 12, 8, 0.68)),
+    linear-gradient(120deg, color-mix(in srgb, var(--accent) 36%, transparent), transparent 58%);
+}
+
+.birthday-showcase__content {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.birthday-showcase__content h3 {
+  margin: 0;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.45rem, 2.2vw, 2.2rem);
+  line-height: 1;
+  color: #2a1b11;
+}
+
+.birthday-showcase__category {
+  width: fit-content;
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(103, 72, 41, 0.76);
+}
+
+.birthday-showcase__tag {
+  color: rgba(49, 34, 19, 0.72);
+  line-height: 1.65;
+}
+
+.birthday-showcase__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.2rem;
+  margin-top: 2rem;
+}
+
+.birthday-showcase__footer p {
+  max-width: 46rem;
+  margin: 0;
+  line-height: 1.75;
+  color: rgba(49, 34, 19, 0.7);
+}
+
+.birthday-showcase__cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.95rem 1.4rem;
+  border-radius: 999px;
+  background: #27190f;
+  color: #fff4e8;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: transform 180ms ease, background 180ms ease;
+}
+
+.birthday-showcase__cta:hover {
+  transform: translateY(-2px);
+  background: #3c2719;
+}
+
+@media (max-width: 1100px) {
+  .birthday-showcase__intro,
+  .birthday-showcase__highlight {
+    grid-template-columns: 1fr;
+  }
+
+  .birthday-showcase__summary {
+    max-width: 26rem;
+  }
+
+  .birthday-showcase__highlight-media {
+    min-height: 23rem;
+  }
+
+  .birthday-showcase__card--large,
+  .birthday-showcase__card--wide {
+    grid-column: span 12;
+  }
+
+  .birthday-showcase__card--medium,
+  .birthday-showcase__card--small {
+    grid-column: span 6;
+  }
+
+  .birthday-showcase__footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 720px) {
+  .birthday-showcase {
+    padding: 0 1.1rem 5rem;
+  }
+
+  .birthday-showcase__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .birthday-showcase__card--large,
+  .birthday-showcase__card--wide,
+  .birthday-showcase__card--medium,
+  .birthday-showcase__card--small {
+    grid-column: span 1;
+  }
+
+  .birthday-showcase__card--large .birthday-showcase__frame,
+  .birthday-showcase__card--wide .birthday-showcase__frame,
+  .birthday-showcase__card--medium .birthday-showcase__frame,
+  .birthday-showcase__card--small .birthday-showcase__frame {
+    min-height: 18rem;
+  }
+
+  .birthday-showcase__headline {
+    font-size: clamp(2rem, 10vw, 3.2rem);
+  }
+
+  .birthday-showcase__summary span:last-child {
+    font-size: 1.35rem;
+  }
+}
