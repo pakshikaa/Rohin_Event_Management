@@ -19,7 +19,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 72px;
+  height: 68px;
   max-width: 1400px;
   margin: 0 auto;
 }
@@ -29,11 +29,13 @@
   align-items: center;
   gap: 0.85rem;
   text-decoration: none;
+  min-width: 0;
+  flex: 0 1 auto;
 }
 
 .nav__logo-mark {
-  width: 58px;
-  height: 58px;
+  width: 46px;
+  height: 46px;
   object-fit: contain;
   display: block;
   flex-shrink: 0;
@@ -43,22 +45,23 @@
   display: flex;
   flex-direction: column;
   gap: 2px;
+  min-width: 0;
 }
 
 .nav__logo-rohin {
   font-family: var(--font-display);
-  font-size: 1.7rem;
+  font-size: 1.55rem;
   font-weight: 500;
-  letter-spacing: 0.25em;
+  letter-spacing: 0.22em;
   color: var(--gold);
   line-height: 1;
 }
 
 .nav__logo-sub {
   font-family: var(--font-body);
-  font-size: 0.58rem;
+  font-size: 0.54rem;
   font-weight: 300;
-  letter-spacing: 0.4em;
+  letter-spacing: 0.34em;
   color: var(--ivory-dim);
   text-transform: uppercase;
 }
@@ -145,7 +148,12 @@
   background: none;
   border: none;
   cursor: pointer;
-  padding: 4px;
+  padding: 8px;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
 }
 
 .nav__burger span {
@@ -175,7 +183,7 @@
 }
 
 .nav__mobile.open {
-  max-height: calc(100svh - 72px);
+  max-height: calc(100svh - 68px);
   opacity: 1;
   pointer-events: auto;
   padding: 1.4rem 1.5rem 2rem;
@@ -235,8 +243,8 @@
   }
 
   .nav__logo-mark {
-    width: 44px;
-    height: 44px;
+    width: 46px;
+    height: 46px;
   }
 
   .nav__logo-copy {
@@ -269,6 +277,36 @@
 @media (max-width: 520px) {
   .nav__inner {
     height: 68px;
+  }
+
+  .nav__logo-mark {
+    width: 44px;
+    height: 44px;
+  }
+
+  .nav__logo-rohin {
+    font-size: 1.28rem;
+    letter-spacing: 0.18em;
+  }
+
+  .nav__logo-sub {
+    font-size: 0.5rem;
+    letter-spacing: 0.28em;
+  }
+
+  .nav__logo {
+    gap: 0.7rem;
+    max-width: calc(100% - 52px);
+  }
+
+  .nav__logo-copy {
+    overflow: hidden;
+  }
+
+  .nav__burger {
+    width: 40px;
+    height: 40px;
+    padding: 6px;
   }
 
   .nav__mobile.open {

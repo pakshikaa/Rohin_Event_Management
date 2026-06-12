@@ -26,7 +26,7 @@ export default function Hero() {
       <div className="hero__overlay" />
 
       <div className="hero__content" ref={heroRef}>
-        <p className="hero__eyebrow">ROHIN Event Management • Jaffna, Sri Lanka</p>
+        <p className="hero__eyebrow">ROHIN Event Management - Jaffna, Sri Lanka</p>
 
         <h1 className="hero__headline">
           <span className="hero__line">Luxury Event Decoration</span>

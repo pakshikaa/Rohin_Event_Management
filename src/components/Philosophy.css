@@ -155,3 +155,40 @@
     gap: 2.2rem;
   }
 }
+
+@media (max-width: 520px) {
+  .philosophy__headline {
+    font-size: clamp(1.95rem, 9.2vw, 2.7rem);
+    margin-bottom: 1.4rem;
+  }
+
+  .philosophy__body {
+    font-size: 0.92rem;
+    line-height: 1.78;
+  }
+
+  .philosophy__quote {
+    margin-top: 1.4rem;
+    padding: 1.2rem;
+  }
+
+  .philosophy__quote p {
+    font-size: 1.02rem;
+    line-height: 1.45;
+  }
+
+  .philosophy__pillar {
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+    padding: 1.2rem;
+  }
+
+  .philosophy__pillar-content h3 {
+    font-size: 1.2rem;
+  }
+
+  .philosophy__pillar-content p {
+    font-size: 0.88rem;
+    line-height: 1.7;
+  }
+}

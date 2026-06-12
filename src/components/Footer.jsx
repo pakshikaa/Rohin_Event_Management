@@ -13,10 +13,7 @@ export default function Footer() {
               alt="ROHIN Event Management"
               className="footer__brand-mark"
             />
-            <div className="footer__brand-copy">
-              <span className="footer__name">ROHIN</span>
-              <span className="footer__tagline">EVENT MANAGEMENT</span>
-            </div>
+            <span className="footer__name">ROHIN EVENT MANAGEMENT</span>
           </div>
           <p className="footer__copy-brand">Creating memorable celebrations across Jaffna and Northern Sri Lanka.</p>
         </div>

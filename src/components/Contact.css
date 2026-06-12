@@ -145,6 +145,7 @@
   font-weight: 400;
   color: var(--ivory);
   line-height: 1.45;
+  overflow-wrap: anywhere;
 }
 
 .contact__detail-link {
@@ -182,9 +183,16 @@
     padding: 6rem 1.2rem;
   }
 
+  .contact__whatsapp {
+    width: 100%;
+    justify-content: center;
+    padding: 15px 18px;
+  }
+
   .contact__details {
     flex-direction: column;
     gap: 1.5rem;
+    padding: 1.5rem 1rem;
   }
 
   .contact__detail-divider {
@@ -194,5 +202,26 @@
 
   .contact__detail {
     padding: 0;
+  }
+}
+
+@media (max-width: 420px) {
+  .contact__eyebrow {
+    letter-spacing: 0.28em;
+    margin-bottom: 1.35rem;
+  }
+
+  .contact__sub {
+    font-size: 0.9rem;
+    line-height: 1.75;
+    margin-bottom: 2.5rem;
+  }
+
+  .contact__whatsapp-note {
+    font-size: 0.64rem;
+  }
+
+  .contact__detail-value {
+    font-size: 0.92rem;
   }
 }

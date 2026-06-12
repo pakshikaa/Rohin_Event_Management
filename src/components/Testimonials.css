@@ -151,3 +151,35 @@
     height: 64px;
   }
 }
+
+@media (max-width: 520px) {
+  .testimonials__card {
+    gap: 1rem;
+    padding: 1.25rem;
+  }
+
+  .testimonials__card-top {
+    display: grid;
+    grid-template-columns: 60px minmax(0, 1fr);
+    gap: 0.85rem;
+    align-items: start;
+  }
+
+  .testimonials__thumb {
+    width: 60px;
+    height: 60px;
+  }
+
+  .testimonials__avatar {
+    display: none;
+  }
+
+  .testimonials__name {
+    font-size: 1.05rem;
+  }
+
+  .testimonials__quote {
+    font-size: 0.92rem;
+    line-height: 1.7;
+  }
+}

@@ -19,9 +19,8 @@ const ITEMS = [
     id: 1,
     title: 'Floral Stage Styling',
     category: 'Wedding',
-    venueLabel: 'Wedding Reception • Jaffna',
-    goal: 'Elegant floral stage with a warm reception focal point.',
-    result: 'Romantic wedding atmosphere with stronger ceremony depth and guest-facing styling.',
+    venueLabel: 'Wedding Reception - Jaffna',
+    summary: 'Elegant floral stage with a warm reception focal point.',
     size: 'large',
     image: '/images/weddings/wedding-romantic-arch.jpeg',
     accent: '#f1c1d6',
@@ -31,9 +30,8 @@ const ITEMS = [
     id: 2,
     title: 'Gold & Ivory Backdrop',
     category: 'Engagement',
-    venueLabel: 'Engagement • Nallur',
-    goal: 'Modern couple stage with a clean photo-ready backdrop.',
-    result: 'A polished engagement stage that looked balanced in both photos and wide venue shots.',
+    venueLabel: 'Engagement - Nallur',
+    summary: 'Modern couple stage with a clean photo-ready backdrop.',
     size: 'medium',
     image: '/images/weddings/engagement-neon-signature.jpeg',
     accent: '#f4d5e5',
@@ -43,9 +41,8 @@ const ITEMS = [
     id: 3,
     title: 'Colour Wall Setup',
     category: 'Mehndi',
-    venueLabel: 'Mehndi • Chavakachcheri',
-    goal: 'Colour-rich mehndi styling without visual clutter.',
-    result: 'A more vibrant celebration zone with stronger portrait and guest-photo moments.',
+    venueLabel: 'Mehndi - Chavakachcheri',
+    summary: 'Colour-rich mehndi styling without visual clutter.',
     size: 'small',
     image: '/images/weddings/mehndi-colour-wall.jpeg',
     accent: '#f4c430',
@@ -55,9 +52,8 @@ const ITEMS = [
     id: 4,
     title: 'Temple Stage Styling',
     category: 'Hindu Wedding',
-    venueLabel: 'Hindu Wedding • Jaffna',
-    goal: 'Traditional stage styling with ceremonial focus.',
-    result: 'A richer mandap atmosphere with layered floral framing and cleaner focal balance.',
+    venueLabel: 'Hindu Wedding - Jaffna',
+    summary: 'Traditional stage styling with ceremonial focus.',
     size: 'medium',
     image: '/images/weddings/hindu-wedding-stage.jpeg',
     accent: '#d4af37',
@@ -67,9 +63,8 @@ const ITEMS = [
     id: 5,
     title: 'Ritual Mandap Design',
     category: 'Iyer Wedding',
-    venueLabel: 'Iyer Wedding • Kokkuvil',
-    goal: 'Classic ritual mandap with a refined sacred-space layout.',
-    result: 'A composed setup that kept the ceremony central while elevating the visual finish.',
+    venueLabel: 'Iyer Wedding - Kokkuvil',
+    summary: 'Classic ritual mandap with a refined sacred-space layout.',
     size: 'medium',
     image: '/images/weddings/iyer-wedding-ritual.jpeg',
     accent: '#d7c16f',
@@ -79,9 +74,8 @@ const ITEMS = [
     id: 7,
     title: 'Statement Monogram Stage',
     category: 'Engagement',
-    venueLabel: 'Engagement • Chunnakam',
-    goal: 'Signature monogram stage with a luxury focal point.',
-    result: 'A stronger engagement identity with elegant couple seating and coordinated styling.',
+    venueLabel: 'Engagement - Chunnakam',
+    summary: 'Signature monogram stage with a luxury focal point.',
     size: 'large',
     image: '/images/weddings/engagement-monogram-stage.jpeg',
     accent: '#d8cdb1',
@@ -91,9 +85,8 @@ const ITEMS = [
     id: 8,
     title: 'Beach Bridal Styling',
     category: 'Bride to Be',
-    venueLabel: 'Bride to Be • Jaffna Coast',
-    goal: 'Sunset celebration corner with a soft bridal mood.',
-    result: 'A cleaner photo area that worked naturally with the coastal light and backdrop.',
+    venueLabel: 'Bride to Be - Jaffna Coast',
+    summary: 'Sunset celebration corner with a soft bridal mood.',
     size: 'small',
     image: '/images/weddings/bride-to-be-sunset.jpeg',
     accent: '#e5b78c',
@@ -103,9 +96,8 @@ const ITEMS = [
     id: 9,
     title: 'Destination Ceremony Setup',
     category: 'Destination',
-    venueLabel: 'Destination Wedding • Northern Coast',
-    goal: 'Oceanfront ceremony with a premium aisle experience.',
-    result: 'A destination-ready setup with stronger ceremony focus and coordinated seating rhythm.',
+    venueLabel: 'Destination Wedding - Northern Coast',
+    summary: 'Oceanfront ceremony with a premium aisle experience.',
     size: 'large',
     image: '/images/weddings/destination-beach-ceremony.jpeg',
     accent: '#d9e5ef',
@@ -178,14 +170,7 @@ export default function Portfolio() {
               <div className="portfolio__item-info">
                 <span className="portfolio__item-cat">{item.venueLabel}</span>
                 <h3 className="portfolio__item-title">{item.title}</h3>
-                <div className="portfolio__item-proof">
-                  <span className="portfolio__item-proof-label">Goal</span>
-                  <span className="portfolio__item-tag">{item.goal}</span>
-                </div>
-                <div className="portfolio__item-proof">
-                  <span className="portfolio__item-proof-label">Result</span>
-                  <span className="portfolio__item-tag">{item.result}</span>
-                </div>
+                <p className="portfolio__item-tag">{item.summary}</p>
               </div>
             </div>
           </article>

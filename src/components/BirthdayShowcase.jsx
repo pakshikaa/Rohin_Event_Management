@@ -10,7 +10,7 @@ const ITEMS = [
     id: 1,
     title: 'Midnight Luxe Stage',
     category: 'Luxury Birthday Celebration',
-    tag: 'Black, silver, candles, mirrored cake wall',
+    tag: 'Black and silver statement styling with candlelit cake staging.',
     size: 'large',
     image: '/images/birthdays/birthday-black-silver.jpeg',
     accent: '#d0d0d0',
@@ -18,9 +18,9 @@ const ITEMS = [
   },
   {
     id: 2,
-    title: 'Bunny Garden World',
+    title: 'Bunny Garden Party',
     category: 'Kids Birthday',
-    tag: 'Storybook setup for a soft first birthday',
+    tag: 'Storybook garden setup for a playful kids celebration.',
     size: 'wide',
     image: '/images/birthdays/birthday-bunny-garden.jpeg',
     accent: '#9abf7a',
@@ -28,9 +28,9 @@ const ITEMS = [
   },
   {
     id: 3,
-    title: 'Pastel Fairy One',
+    title: 'Pastel Fairy First Birthday',
     category: 'First Birthday',
-    tag: 'Pink balloon styling with dessert tables',
+    tag: 'Pink balloon styling with a soft dessert-table focal point.',
     size: 'medium',
     image: '/images/birthdays/birthday-pink-fairy.jpeg',
     accent: '#f2b7c8',
@@ -38,9 +38,9 @@ const ITEMS = [
   },
   {
     id: 4,
-    title: 'Ocean Blue Birthday',
+    title: 'Ocean Adventure Setup',
     category: 'Kids Birthday',
-    tag: 'Underwater styling with cake islands',
+    tag: 'Underwater-inspired styling with layered balloon depth.',
     size: 'medium',
     image: '/images/birthdays/birthday-ocean-theme.jpeg',
     accent: '#9fd5ef',
@@ -50,7 +50,7 @@ const ITEMS = [
     id: 5,
     title: 'Mickey First Birthday',
     category: 'First Birthday',
-    tag: 'Character-led stage with soft blue layering',
+    tag: 'Character-led stage with soft blue layering and clean framing.',
     size: 'medium',
     image: '/images/birthdays/birthday-mickey-blue.jpeg',
     accent: '#b8d2f2',
@@ -60,7 +60,7 @@ const ITEMS = [
     id: 6,
     title: 'Garden Number One',
     category: 'First Birthday',
-    tag: 'Green wall, florals, and clean photo framing',
+    tag: 'Green wall styling with florals and crisp photo framing.',
     size: 'small',
     image: '/images/birthdays/birthday-garden-one.jpeg',
     accent: '#c9e2b5',
@@ -70,7 +70,7 @@ const ITEMS = [
     id: 7,
     title: 'Wild Safari Setup',
     category: 'Kids Birthday',
-    tag: 'Lion king palette with layered cut-outs',
+    tag: 'Safari palette with layered animals, balloons, and stage depth.',
     size: 'large',
     image: '/images/birthdays/birthday-safari.jpeg',
     accent: '#d7b46c',
@@ -80,7 +80,7 @@ const ITEMS = [
     id: 8,
     title: 'Jungle Luxe Cake Stage',
     category: 'Luxury Birthday Celebration',
-    tag: 'Statement balloons, foliage, and premium staging',
+    tag: 'Statement balloons, foliage, and premium staging.',
     size: 'medium',
     image: '/images/birthdays/birthday-jungle-luxe.jpeg',
     accent: '#8ab073',
@@ -90,7 +90,7 @@ const ITEMS = [
     id: 9,
     title: 'Glow 21 Celebration',
     category: 'Milestone Birthday',
-    tag: 'Milestone birthday with illuminated numerals',
+    tag: 'Milestone birthday styling with illuminated numerals and warm glow.',
     size: 'medium',
     image: '/images/birthdays/birthday-21-glow.jpeg',
     accent: '#f1c58e',
@@ -100,7 +100,7 @@ const ITEMS = [
     id: 10,
     title: 'Beach Birthday Arch',
     category: 'Luxury Birthday Celebration',
-    tag: 'Sunset birthday portrait point by the shore',
+    tag: 'Sunset portrait-point styling set directly by the shore.',
     size: 'wide',
     image: '/images/birthdays/birthday-beach-arch.jpeg',
     accent: '#efc39b',
@@ -190,11 +190,11 @@ export default function BirthdayShowcase() {
                 style={{ objectPosition: item.objectPosition }}
               />
               <div className="birthday-showcase__wash" style={{ '--accent': item.accent }} />
-            </div>
-            <div className="birthday-showcase__content">
-              <span className="birthday-showcase__category">{item.category}</span>
-              <h3>{item.title}</h3>
-              <span className="birthday-showcase__tag">{item.tag}</span>
+              <div className="birthday-showcase__content">
+                <span className="birthday-showcase__category">{item.category}</span>
+                <h3>{item.title}</h3>
+                <p className="birthday-showcase__tag">{item.tag}</p>
+              </div>
             </div>
           </article>
         ))}
