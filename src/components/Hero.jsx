@@ -1,20 +1,52 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import WebGLHero from './WebGLHero';
-import { CTA_SUPPORT, CONTACT } from '../content/site';
+import { CONTACT, trackWhatsAppClick } from '../content/site';
+import { useInView } from '../hooks/useInView';
+import { useCountUp } from '../hooks/useCountUp';
 import './Hero.css';
 
+const WORDS = ['Weddings', 'Galas', 'Ceremonies', 'Experiences', 'Moments'];
+
 export default function Hero() {
+  const [activeWord, setActiveWord] = useState(0);
+  const [statsRef, statsInView] = useInView({ threshold: 0.5 });
+  const count1 = useCountUp(6, 1800, statsInView);
+  const count2 = useCountUp(100, 2200, statsInView);
   const heroRef = useRef(null);
 
   useEffect(() => {
+    const intervalId = window.setInterval(() => {
+      setActiveWord((current) => (current + 1) % WORDS.length);
+    }, 2800);
+
+    return () => window.clearInterval(intervalId);
+  }, []);
+
+  useEffect(() => {
     const el = heroRef.current;
+    let ticking = false;
+
     const onScroll = () => {
-      const y = window.scrollY;
-      if (el) el.style.transform = `translateY(${y * 0.12}px)`;
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          if (el) el.style.transform = `translateY(${window.scrollY * 0.22}px)`;
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
+
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
+
+  const ctaCopy = useMemo(
+    () => ({
+      primary: 'Begin Your Vision',
+      ghost: 'View Portfolio',
+    }),
+    []
+  );
 
   const scrollToPortfolio = () => {
     document.getElementById('portfolio')?.scrollIntoView({ behavior: 'smooth' });
@@ -26,18 +58,21 @@ export default function Hero() {
       <div className="hero__overlay" />
 
       <div className="hero__content" ref={heroRef}>
-        <p className="hero__eyebrow">ROHIN Event Management - Jaffna, Sri Lanka</p>
+        <p className="hero__eyebrow">Chavakachcheri&apos;s Premier Event Atelier</p>
 
         <h1 className="hero__headline">
-          <span className="hero__line">Luxury Event Decoration</span>
-          <span className="hero__line hero__line--gold">for Weddings, Birthdays</span>
-          <span className="hero__line">&amp; Private Celebrations</span>
+          <span className="hero__line">We Sculpt</span>
+          <span className="hero__line hero__line--animated-wrap" aria-live="polite">
+            <span key={WORDS[activeWord]} className="hero__line hero__line--gold hero__line--animated">
+              {WORDS[activeWord]}
+            </span>
+          </span>
+          <span className="hero__line">Into Art.</span>
         </h1>
 
         <p className="hero__sub">
-          ROHIN handles luxury wedding decoration, birthday setups, and private celebration styling
-          across Jaffna and Northern Sri Lanka with real venue experience, floral staging, lighting,
-          and complete event atmosphere planning.
+          Rohin composes wedding environments, elevated celebrations, and guest-facing moments with
+          floral architecture, lighting direction, and a refined sense of atmosphere.
         </p>
 
         <div className="hero__actions">
@@ -46,37 +81,36 @@ export default function Hero() {
             target="_blank"
             rel="noopener noreferrer"
             className="hero__btn hero__btn--primary"
+            onClick={() => trackWhatsAppClick('hero')}
           >
-            <span className="hero__btn-copy">
-              <span>Check Event Availability</span>
-              <span className="hero__btn-note">{CTA_SUPPORT}</span>
-            </span>
+            <span>{ctaCopy.primary}</span>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
               <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </a>
-          <button className="hero__btn hero__btn--ghost" onClick={scrollToPortfolio}>
-            View Portfolio
+
+          <button type="button" className="hero__btn hero__btn--ghost" onClick={scrollToPortfolio}>
+            {ctaCopy.ghost}
           </button>
         </div>
 
-        <div className="hero__ledger" aria-label="Studio profile">
-          <div className="hero__ledger-item">
-            <span className="hero__ledger-label">What We Style</span>
-            <span className="hero__ledger-value">Wedding receptions, birthdays, and private celebrations</span>
+        <div className="hero__stats" ref={statsRef}>
+          <div className="hero__stat">
+            <span className="hero__stat-num">{count1}+</span>
+            <span className="hero__stat-label">Years of Excellence</span>
           </div>
-          <div className="hero__ledger-item">
-            <span className="hero__ledger-label">Why Clients Book</span>
-            <span className="hero__ledger-value">One team for floral styling, stage concepts, lighting, and event-ready setup</span>
+          <div className="hero__stat">
+            <span className="hero__stat-num">{count2}+</span>
+            <span className="hero__stat-label">Events Crafted</span>
           </div>
-          <div className="hero__ledger-item">
-            <span className="hero__ledger-label">Where We Work</span>
-            <span className="hero__ledger-value">Serving Jaffna and the wider Northern Province with celebration-focused event styling</span>
+          <div className="hero__stat">
+            <span className="hero__stat-num">100%</span>
+            <span className="hero__stat-label">Bespoke Designs</span>
           </div>
         </div>
       </div>
 
-      <div className="hero__scroll-cue">
+      <div className="hero__scroll-cue" aria-hidden="true">
         <span>Scroll</span>
         <div className="hero__scroll-line" />
       </div>

@@ -4,7 +4,7 @@ import './TrustStrip.css';
 const ITEMS = [
   '100+ Events Styled',
   'Weddings & Birthdays',
-  'Serving Jaffna & Northern Province',
+  'Serving Sangathanai, Chavakachcheri, Jaffna',
   'Fast WhatsApp Response',
 ];
 

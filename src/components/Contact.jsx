@@ -1,6 +1,6 @@
 import React from 'react';
+import { CONTACT, trackWhatsAppClick } from '../content/site';
 import { useInView } from '../hooks/useInView';
-import { CTA_SUPPORT, CONTACT } from '../content/site';
 import './Contact.css';
 
 export default function Contact() {
@@ -9,17 +9,15 @@ export default function Contact() {
   return (
     <section className="contact" id="contact" ref={ref}>
       <div className={`contact__inner ${inView ? 'visible' : ''}`}>
-        <p className="contact__eyebrow">Check Event Availability</p>
-
+        <p className="contact__eyebrow">Contact Rohin</p>
         <h2 className="contact__headline">
-          Let's Begin Planning Your
-          <br />
-          <em>Event</em>
+          Your event begins with a
+          {' '}
+          <em>conversation.</em>
         </h2>
-
         <p className="contact__sub">
-          Share your date, venue, and celebration type. ROHIN will guide you with a decoration
-          direction that fits your event, venue scale, and guest experience.
+          Share the venue, date, and celebration brief. We will guide the atmosphere, styling
+          direction, and next steps from there.
         </p>
 
         <div className="contact__actions">
@@ -28,14 +26,12 @@ export default function Contact() {
             target="_blank"
             rel="noopener noreferrer"
             className="contact__whatsapp"
+            onClick={() => trackWhatsAppClick('contact')}
           >
             <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
               <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
             </svg>
-            <span className="contact__whatsapp-copy">
-              <span>Check Event Availability</span>
-              <span className="contact__whatsapp-note">{CTA_SUPPORT}</span>
-            </span>
+            <span>Begin Your Vision</span>
           </a>
         </div>
 
@@ -47,7 +43,7 @@ export default function Contact() {
           <div className="contact__detail-divider" />
           <div className="contact__detail">
             <span className="contact__detail-label">Telephone</span>
-            <a href="tel:+94767171454" className="contact__detail-value contact__detail-link">+94 76 717 1454</a>
+            <a href={`tel:+${CONTACT.whatsappNumber}`} className="contact__detail-value contact__detail-link">+94 76 717 1454</a>
           </div>
           <div className="contact__detail-divider" />
           <div className="contact__detail">
@@ -55,12 +51,25 @@ export default function Contact() {
             <a href={`mailto:${CONTACT.email}`} className="contact__detail-value contact__detail-link">{CONTACT.email}</a>
           </div>
         </div>
+
+        <div className="contact__map">
+          <iframe
+            title="Rohin Event Management Location"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3930.5!2d80.1534!3d9.6615!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zOcKwMzknNDEuNCJOIDgwwrAwOScxMi4yIkU!5e0!3m2!1sen!2slk!4v1"
+            width="100%"
+            height="260"
+            style={{ border: 'none', filter: 'grayscale(0.3) contrast(1.1)' }}
+            allowFullScreen=""
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+          />
+        </div>
       </div>
 
       <div className="contact__arc" aria-hidden="true">
         <svg viewBox="0 0 1440 300" fill="none" preserveAspectRatio="none">
           <path d="M0 300 Q720 0 1440 300" stroke="rgba(212,175,55,0.07)" strokeWidth="1" fill="none" />
-          <path d="M0 300 Q720 40 1440 300" stroke="rgba(212,175,55,0.04)" strokeWidth="1" fill="none" />
+          <path d="M0 300 Q720 40 1440 300" stroke="rgba(212,175,55,0.07)" strokeWidth="1" fill="none" />
         </svg>
       </div>
     </section>

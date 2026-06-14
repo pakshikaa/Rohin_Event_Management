@@ -1,47 +1,50 @@
-import React from 'react';
+import React, { Suspense, lazy } from 'react';
 import Cursor from './components/Cursor';
 import GoldDust from './components/GoldDust';
 import Nav from './components/Nav';
 import Hero from './components/Hero';
 import TrustStrip from './components/TrustStrip';
 import Philosophy from './components/Philosophy';
-import Portfolio from './components/Portfolio';
-import BirthdayShowcase from './components/BirthdayShowcase';
-import Metamorphosis from './components/Metamorphosis';
-import Services from './components/Services';
 import Testimonials from './components/Testimonials';
+import BirthdayShowcase from './components/BirthdayShowcase';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import WhatsAppFloat from './components/WhatsAppFloat';
 
+const Portfolio = lazy(() => import('./components/Portfolio'));
+const Metamorphosis = lazy(() => import('./components/Metamorphosis'));
+const Services = lazy(() => import('./components/Services'));
+
+function SectionFallback() {
+  return <div className="section-fallback" aria-hidden="true" />;
+}
+
 export default function App() {
   return (
     <>
-      {/* Custom cursor — desktop only */}
       <Cursor />
-
-      {/* Ambient gold dust particles */}
       <GoldDust />
-
-      {/* Navigation */}
       <Nav />
 
-      {/* Main content */}
       <main>
         <Hero />
         <TrustStrip />
-        <Portfolio />
+        <Suspense fallback={<SectionFallback />}>
+          <Portfolio />
+        </Suspense>
         <Testimonials />
         <BirthdayShowcase />
-        <Metamorphosis />
-        <Services />
+        <Suspense fallback={<SectionFallback />}>
+          <Metamorphosis />
+        </Suspense>
+        <Suspense fallback={<SectionFallback />}>
+          <Services />
+        </Suspense>
         <Philosophy />
         <Contact />
       </main>
 
       <Footer />
-
-      {/* Persistent WhatsApp CTA */}
       <WhatsAppFloat />
     </>
   );

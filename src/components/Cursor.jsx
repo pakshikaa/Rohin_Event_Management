@@ -1,6 +1,7 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
-export default function Cursor() {
+function CursorInner() {
+  const [isTouch, setIsTouch] = useState(true);
   const dotRef = useRef(null);
   const followerRef = useRef(null);
   const pos = useRef({ x: -100, y: -100 });
@@ -8,25 +9,30 @@ export default function Cursor() {
   const rafRef = useRef(null);
 
   useEffect(() => {
+    const media = window.matchMedia('(hover: none)');
+    const update = () => setIsTouch(media.matches);
+    update();
+    media.addEventListener('change', update);
+    return () => media.removeEventListener('change', update);
+  }, []);
+
+  useEffect(() => {
+    if (isTouch) return undefined;
+
     const onMove = (e) => {
       pos.current = { x: e.clientX, y: e.clientY };
     };
-    window.addEventListener('mousemove', onMove);
 
-    // Detect hover on interactive elements
     const onEnter = () => {
       dotRef.current?.classList.add('expanded');
       followerRef.current?.classList.add('expanded');
     };
+
     const onLeave = () => {
       dotRef.current?.classList.remove('expanded');
       followerRef.current?.classList.remove('expanded');
     };
 
-    document.addEventListener('mouseenter', onEnter, true);
-    document.addEventListener('mouseleave', onLeave, true);
-
-    // Smooth follower
     const animate = () => {
       followerPos.current.x += (pos.current.x - followerPos.current.x) * 0.12;
       followerPos.current.y += (pos.current.y - followerPos.current.y) * 0.12;
@@ -39,6 +45,10 @@ export default function Cursor() {
       }
       rafRef.current = requestAnimationFrame(animate);
     };
+
+    window.addEventListener('mousemove', onMove);
+    document.addEventListener('mouseenter', onEnter, true);
+    document.addEventListener('mouseleave', onLeave, true);
     animate();
 
     return () => {
@@ -47,7 +57,9 @@ export default function Cursor() {
       document.removeEventListener('mouseenter', onEnter, true);
       document.removeEventListener('mouseleave', onLeave, true);
     };
-  }, []);
+  }, [isTouch]);
+
+  if (isTouch) return null;
 
   return (
     <>
@@ -55,4 +67,9 @@ export default function Cursor() {
       <div ref={followerRef} className="cursor-follower" />
     </>
   );
+}
+
+export default function Cursor() {
+  if (typeof window !== 'undefined' && window.matchMedia('(hover: none)').matches) return null;
+  return <CursorInner />;
 }

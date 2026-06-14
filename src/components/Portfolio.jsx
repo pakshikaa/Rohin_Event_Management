@@ -1,147 +1,41 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { useInView } from '../hooks/useInView';
-import { CTA_SUPPORT, CONTACT } from '../content/site';
 import './Portfolio.css';
 
-const CATEGORIES = [
-  'All',
-  'Wedding',
-  'Hindu Wedding',
-  'Engagement',
-  'Mehndi',
-  'Bride to Be',
-  'Iyer Wedding',
-  'Destination',
-];
-
-const ITEMS = [
-  {
-    id: 1,
-    title: 'Floral Stage Styling',
-    category: 'Wedding',
-    venueLabel: 'Wedding Reception - Jaffna',
-    summary: 'Elegant floral stage with a warm reception focal point.',
-    size: 'large',
-    image: '/images/weddings/wedding-romantic-arch.jpeg',
-    accent: '#f1c1d6',
-    objectPosition: 'center center',
-  },
-  {
-    id: 2,
-    title: 'Gold & Ivory Backdrop',
-    category: 'Engagement',
-    venueLabel: 'Engagement - Nallur',
-    summary: 'Modern couple stage with a clean photo-ready backdrop.',
-    size: 'medium',
-    image: '/images/weddings/engagement-neon-signature.jpeg',
-    accent: '#f4d5e5',
-    objectPosition: 'center center',
-  },
-  {
-    id: 3,
-    title: 'Colour Wall Setup',
-    category: 'Mehndi',
-    venueLabel: 'Mehndi - Chavakachcheri',
-    summary: 'Colour-rich mehndi styling without visual clutter.',
-    size: 'small',
-    image: '/images/weddings/mehndi-colour-wall.jpeg',
-    accent: '#f4c430',
-    objectPosition: 'center center',
-  },
-  {
-    id: 4,
-    title: 'Temple Stage Styling',
-    category: 'Hindu Wedding',
-    venueLabel: 'Hindu Wedding - Jaffna',
-    summary: 'Traditional stage styling with ceremonial focus.',
-    size: 'medium',
-    image: '/images/weddings/hindu-wedding-stage.jpeg',
-    accent: '#d4af37',
-    objectPosition: 'center center',
-  },
-  {
-    id: 5,
-    title: 'Ritual Mandap Design',
-    category: 'Iyer Wedding',
-    venueLabel: 'Iyer Wedding - Kokkuvil',
-    summary: 'Classic ritual mandap with a refined sacred-space layout.',
-    size: 'medium',
-    image: '/images/weddings/iyer-wedding-ritual.jpeg',
-    accent: '#d7c16f',
-    objectPosition: 'center center',
-  },
-  {
-    id: 7,
-    title: 'Statement Monogram Stage',
-    category: 'Engagement',
-    venueLabel: 'Engagement - Chunnakam',
-    summary: 'Signature monogram stage with a luxury focal point.',
-    size: 'large',
-    image: '/images/weddings/engagement-monogram-stage.jpeg',
-    accent: '#d8cdb1',
-    objectPosition: 'center center',
-  },
-  {
-    id: 8,
-    title: 'Beach Bridal Styling',
-    category: 'Bride to Be',
-    venueLabel: 'Bride to Be - Jaffna Coast',
-    summary: 'Sunset celebration corner with a soft bridal mood.',
-    size: 'small',
-    image: '/images/weddings/bride-to-be-sunset.jpeg',
-    accent: '#e5b78c',
-    objectPosition: 'center center',
-  },
-  {
-    id: 9,
-    title: 'Destination Ceremony Setup',
-    category: 'Destination',
-    venueLabel: 'Destination Wedding - Northern Coast',
-    summary: 'Oceanfront ceremony with a premium aisle experience.',
-    size: 'large',
-    image: '/images/weddings/destination-beach-ceremony.jpeg',
-    accent: '#d9e5ef',
-    objectPosition: 'center center',
-  },
+export const PORTFOLIO_ITEMS = [
+  { id: 1, title: 'Ivory & Jasmine', category: 'Weddings', tag: 'Grand Ballroom', size: 'large', imageSrc: '/images/weddings/wedding-romantic-arch.jpeg', objectPosition: 'center 58%', bg: 'linear-gradient(135deg,#1a3a2a,#2a5a3a)' },
+  { id: 2, title: 'Obsidian Gala', category: 'Corporate', tag: 'Stage Architecture', size: 'small', imageSrc: '/images/weddings/engagement-monogram-stage.jpeg', objectPosition: 'center center', bg: 'linear-gradient(160deg,#0d1a0d,#1a2a1a)' },
+  { id: 3, title: 'Rose Reverie', category: 'Floral', tag: 'Ceremony Arch', size: 'small', imageSrc: '/images/weddings/wedding-floral-lounge.jpeg', objectPosition: 'center 45%', bg: 'linear-gradient(120deg,#2a1a1a,#3a1f1f)' },
+  { id: 4, title: 'Golden Thread', category: 'Weddings', tag: 'Reception Hall', size: 'medium', imageSrc: '/images/weddings/hindu-wedding-stage.jpeg', objectPosition: 'center 52%', bg: 'linear-gradient(145deg,#1a1500,#2a2000)' },
+  { id: 5, title: 'Emerald Pavilion', category: 'Stage', tag: 'LED Environment', size: 'medium', imageSrc: '/images/weddings/engagement-neon-signature.jpeg', objectPosition: 'center 40%', bg: 'linear-gradient(135deg,#0d2318,#1a3a2a)' },
+  { id: 6, title: 'Celestial Arc', category: 'Weddings', tag: 'Outdoor Ceremony', size: 'large', imageSrc: '/images/weddings/destination-beach-ceremony.jpeg', objectPosition: 'center 62%', bg: 'linear-gradient(160deg,#0d0d20,#1a1a3a)' },
 ];
 
 export default function Portfolio() {
   const [active, setActive] = useState('All');
-  const [ref, inView] = useInView({ threshold: 0.05 });
+  const [ref, inView] = useInView({ threshold: 0.1 });
 
-  const filtered = active === 'All'
-    ? ITEMS
-    : ITEMS.filter((item) => item.category === active);
+  const categories = useMemo(
+    () => ['All', ...new Set(PORTFOLIO_ITEMS.map((item) => item.category))],
+    []
+  );
+
+  const items = active === 'All'
+    ? PORTFOLIO_ITEMS
+    : PORTFOLIO_ITEMS.filter((item) => item.category === active);
 
   return (
     <section className="portfolio" id="portfolio" ref={ref}>
       <div className="portfolio__header">
-        <div className="portfolio__header-copy">
-          <p className="portfolio__eyebrow">Wedding Collections</p>
-          <h2 className="portfolio__headline">
-            Wedding Decoration
-            <br />
-            <em>Portfolio</em>
-          </h2>
-          <p className="portfolio__sub">
-            Browse selected wedding case studies from Jaffna and nearby venues, with each setup
-            showing the client goal and the result ROHIN delivered.
-          </p>
-        </div>
-
-        <aside className="portfolio__summary">
-          <span className="portfolio__summary-label">Selected Wedding Work</span>
-          <p>
-            Mandap, engagement, mehndi, bridal, and reception decoration concepts styled for
-            premium celebrations.
-          </p>
-        </aside>
+        <p className="portfolio__eyebrow">Selected Portfolio</p>
+        <h2 className="portfolio__headline">Luxury environments shaped with light, texture, and focal drama.</h2>
       </div>
 
       <div className="portfolio__filters">
-        {CATEGORIES.map((category) => (
+        {categories.map((category) => (
           <button
             key={category}
+            type="button"
             className={`portfolio__filter ${active === category ? 'active' : ''}`}
             onClick={() => setActive(category)}
           >
@@ -151,47 +45,35 @@ export default function Portfolio() {
       </div>
 
       <div className={`portfolio__grid ${inView ? 'visible' : ''}`}>
-        {filtered.map((item, index) => (
+        {items.map((item, index) => (
           <article
             key={item.id}
             className={`portfolio__item portfolio__item--${item.size}`}
-            style={{ transitionDelay: `${index * 0.08}s` }}
+            style={{ transitionDelay: `${index * 0.1}s` }}
           >
-            <div className="portfolio__item-frame">
-              <img
-                className="portfolio__item-image"
-                src={item.image}
-                alt={item.title}
-                loading={index < 2 ? 'eager' : 'lazy'}
-                style={{ objectPosition: item.objectPosition }}
-              />
-              <div className="portfolio__item-tint" style={{ '--accent': item.accent }} />
+            <div className="portfolio__frame" style={{ background: item.bg }}>
+              {item.imageSrc
+                ? (
+                  <img
+                    src={item.imageSrc}
+                    alt={item.title}
+                    loading="lazy"
+                    className="portfolio__image"
+                    style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: item.objectPosition || 'center center' }}
+                  />
+                )
+                : <div className="portfolio__item-bg" style={{ background: item.bg }} />}
               <div className="portfolio__item-overlay" />
+              <div className="portfolio__bloom" />
               <div className="portfolio__item-info">
-                <span className="portfolio__item-cat">{item.venueLabel}</span>
+                <span className="portfolio__item-tag">{item.tag}</span>
                 <h3 className="portfolio__item-title">{item.title}</h3>
-                <p className="portfolio__item-tag">{item.summary}</p>
+                <p className="portfolio__item-cat">{item.category}</p>
+                <span className="portfolio__line" />
               </div>
             </div>
           </article>
         ))}
-      </div>
-
-      <div className="portfolio__cta-row">
-        <a
-          href={CONTACT.whatsappUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="portfolio__cta"
-        >
-          <span className="portfolio__cta-copy">
-            <span>Check Event Availability</span>
-            <span className="portfolio__cta-note">{CTA_SUPPORT}</span>
-          </span>
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
-        </a>
       </div>
     </section>
   );

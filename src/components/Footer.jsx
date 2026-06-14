@@ -3,27 +3,32 @@ import { CONTACT } from '../content/site';
 import './Footer.css';
 
 export default function Footer() {
+  const links = [
+    ['Philosophy', 'philosophy'],
+    ['Portfolio', 'portfolio'],
+    ['Transformations', 'metamorphosis'],
+    ['Testimonials', 'testimonials'],
+    ['Contact', 'contact'],
+  ];
+
   return (
     <footer className="footer">
       <div className="footer__inner">
         <div className="footer__brand">
-          <div className="footer__brand-head">
-            <img
-              src="/images/brand/rohin-logo-web-optimized.png"
-              alt="ROHIN Event Management"
-              className="footer__brand-mark"
-            />
-            <span className="footer__name">ROHIN EVENT MANAGEMENT</span>
+          <div className="footer__brand-copy">
+            <span className="footer__name">ROHIN</span>
+            <span className="footer__sub">EVENT MANAGEMENT</span>
           </div>
-          <p className="footer__copy-brand">Creating memorable celebrations across Jaffna and Northern Sri Lanka.</p>
+          <p className="footer__tagline">Luxury event environments designed for weddings, stages, and private celebrations.</p>
         </div>
 
         <div className="footer__nav">
-          {['Philosophy', 'Portfolio', 'Metamorphosis', 'Testimonials', 'Contact'].map((label) => (
+          {links.map(([label, id]) => (
             <button
-              key={label}
+              key={id}
+              type="button"
               className="footer__link"
-              onClick={() => document.getElementById(label.toLowerCase())?.scrollIntoView({ behavior: 'smooth' })}
+              onClick={() => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })}
             >
               {label}
             </button>
@@ -31,34 +36,14 @@ export default function Footer() {
         </div>
 
         <div className="footer__social">
-          <p className="footer__social-label">Location</p>
-          <p className="footer__social-copy">{CONTACT.location}</p>
-
-          <p className="footer__social-label footer__social-label--spaced">Services</p>
-          <div className="footer__service-list">
-            <span>Wedding Decoration</span>
-            <span>Birthday Decoration</span>
-            <span>Private Celebrations</span>
-          </div>
-
-          <p className="footer__social-label footer__social-label--spaced">Contact</p>
-          <div className="footer__social-links">
-            <a href={CONTACT.whatsappUrl} target="_blank" rel="noopener noreferrer" className="footer__social-link">
-              WhatsApp
-            </a>
-            <a href={CONTACT.facebookUrl} target="_blank" rel="noopener noreferrer" className="footer__social-link">
-              Facebook
-            </a>
-            <a href={CONTACT.instagramUrl} target="_blank" rel="noopener noreferrer" className="footer__social-link">
-              Instagram
-            </a>
-          </div>
+          <span className="footer__social-label">Social</span>
+          <a href={CONTACT.facebookUrl} target="_blank" rel="noopener noreferrer" className="footer__social-link">Facebook</a>
         </div>
       </div>
 
       <div className="footer__bottom">
-        <p>Copyright {new Date().getFullYear()} Rohin Event Management. All rights reserved.</p>
-        <p>{CONTACT.location}</p>
+        <span>&copy; 2025 Rohin Event Management. All rights reserved.</span>
+        <span>Sangathanai, Chavakachcheri, Jaffna</span>
       </div>
     </footer>
   );

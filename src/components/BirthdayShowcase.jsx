@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useInView } from '../hooks/useInView';
-import { CTA_SUPPORT, CONTACT } from '../content/site';
+import { CTA_SUPPORT, CONTACT, trackWhatsAppClick } from '../content/site';
 import './BirthdayShowcase.css';
 
 const CATEGORIES = ['All', 'First Birthday', 'Kids Birthday', 'Milestone Birthday', 'Luxury Birthday Celebration'];
@@ -210,6 +210,7 @@ export default function BirthdayShowcase() {
           target="_blank"
           rel="noopener noreferrer"
           className="birthday-showcase__cta"
+          onClick={() => trackWhatsAppClick('birthdays')}
         >
           <span className="birthday-showcase__cta-copy">
             <span>Check Event Availability</span>

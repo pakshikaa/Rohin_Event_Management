@@ -1,71 +1,108 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useInView } from '../hooks/useInView';
 import './Testimonials.css';
 
 const TESTIMONIALS = [
   {
-    type: 'Wedding Reception',
-    quote: 'Guests still talk about the floral stage and how polished the whole venue felt.',
+    type: 'Wedding',
+    quote: 'The venue felt elevated the moment guests walked in. Every floral and lighting detail felt composed.',
     name: 'K & T',
-    event: 'Nallur',
+    label: 'Wedding Reception, Jaffna',
     initials: 'KT',
-    image: '/images/weddings/engagement-monogram-stage.jpeg',
+    icon: 'floral',
   },
   {
-    type: 'Wedding Reception',
-    quote: 'The lighting, floral framing, and seating layout made the venue feel complete before guests arrived.',
-    name: 'S & M',
-    event: 'Jaffna',
-    initials: 'SM',
-    image: '/images/weddings/wedding-romantic-arch.jpeg',
+    type: 'Corporate',
+    quote: 'Rohin gave the stage presence and polish we needed without making the room feel cold or generic.',
+    name: 'Brand Team',
+    label: 'Corporate Launch, Jaffna',
+    initials: 'BT',
+    icon: 'building',
   },
   {
-    type: 'First Birthday',
-    quote: 'The backdrop looked beautiful in photos and the setup felt neat from every angle.',
-    name: 'P & R Family',
-    event: 'Jaffna',
-    initials: 'PR',
-    image: '/images/birthdays/birthday-bunny-garden.jpeg',
-  },
-  {
-    type: 'Milestone Birthday',
-    quote: 'We wanted something stylish and premium, and the finished setup felt exactly right for the celebration.',
+    type: 'Celebration',
+    quote: 'The setup felt premium in person and photographed beautifully from every corner of the room.',
     name: 'A & S',
-    event: 'Kokkuvil',
+    label: 'Milestone Evening, Kokkuvil',
     initials: 'AS',
-    image: '/images/birthdays/birthday-21-glow.jpeg',
+    icon: 'floral',
   },
 ];
 
+function TypeIcon({ type }) {
+  const paths = {
+    floral: <path d="M12 5c-2.2 0-4 1.7-4 3.8 0 2.3 1.8 4.2 4.1 4.2 2.1 0 3.9-1.6 3.9-3.7C16 7.1 14.4 5 12 5Zm-3 3.7c-1.9 0-3.5 1.5-3.5 3.3 0 1.8 1.4 3.3 3.2 3.3 1.8 0 3.3-1.5 3.3-3.5 0-1.7-1.3-3.1-3-3.1Z" />,
+    building: <path d="M5 19V7l7-3 7 3v12M9 19v-4h6v4M9 9h.01M15 9h.01M9 12h.01M15 12h.01" />,
+  };
+
+  return (
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      {paths[type]}
+    </svg>
+  );
+}
+
 export default function Testimonials() {
-  const [ref, inView] = useInView({ threshold: 0.1 });
+  const [active, setActive] = useState(0);
+  const [display, setDisplay] = useState(0);
+  const [fading, setFading] = useState(false);
+  const [ref, inView] = useInView({ threshold: 0.15 });
+  const timerRef = useRef(null);
+  const timeoutRef = useRef(null);
+
+  const changeQuote = (index) => {
+    setFading(true);
+    window.clearTimeout(timeoutRef.current);
+    timeoutRef.current = window.setTimeout(() => {
+      setActive(index);
+      setDisplay(index);
+      setFading(false);
+    }, 220);
+  };
+
+  useEffect(() => {
+    timerRef.current = window.setInterval(() => {
+      changeQuote((active + 1) % TESTIMONIALS.length);
+    }, 5500);
+
+    return () => {
+      window.clearInterval(timerRef.current);
+      window.clearTimeout(timeoutRef.current);
+    };
+  }, [active]);
+
+  const current = TESTIMONIALS[display];
 
   return (
     <section className="testimonials" id="testimonials" ref={ref}>
       <div className={`testimonials__inner ${inView ? 'visible' : ''}`}>
-        <div className="testimonials__header">
-          <p className="testimonials__eyebrow">Client Voices</p>
-          <h2 className="testimonials__headline">What clients say after the event</h2>
-          <p className="testimonials__sub">
-            Each testimonial is paired with the event type, location, and a setup image so visitors
-            can quickly judge the kind of celebrations ROHIN handles.
-          </p>
+        <p className="testimonials__eyebrow">Client Trust</p>
+        <div className="testimonials__divider">
+          <TypeIcon type={current.icon} />
+          <span>{current.type}</span>
+        </div>
+        <div className="testimonials__quote-mark">&ldquo;</div>
+        <blockquote className={`testimonials__quote ${fading ? 'fading' : ''}`}>
+          {current.quote}
+        </blockquote>
+
+        <div className="testimonials__author">
+          <span className="testimonials__avatar">{current.initials}</span>
+          <div>
+            <p className="testimonials__name">{current.name}</p>
+            <p className="testimonials__event">{current.label}</p>
+          </div>
         </div>
 
-        <div className="testimonials__grid">
+        <div className="testimonials__dots" role="tablist" aria-label="Testimonials">
           {TESTIMONIALS.map((item, index) => (
-            <article className="testimonials__card" key={item.name} style={{ transitionDelay: `${index * 0.08}s` }}>
-              <div className="testimonials__card-top">
-                <img className="testimonials__thumb" src={item.image} alt={`${item.type} setup in ${item.event}`} />
-                <div className="testimonials__avatar">{item.initials}</div>
-                <div>
-                  <span className="testimonials__type">{item.type}</span>
-                  <p className="testimonials__name">{item.name}</p>
-                  <p className="testimonials__event">{item.event}</p>
-                </div>
-              </div>
-              <blockquote className="testimonials__quote">{item.quote}</blockquote>
-            </article>
+            <button
+              key={item.name}
+              type="button"
+              className={`testimonials__dot ${index === active ? 'active' : ''}`}
+              onClick={() => changeQuote(index)}
+              aria-label={`Show testimonial ${index + 1}`}
+            />
           ))}
         </div>
       </div>

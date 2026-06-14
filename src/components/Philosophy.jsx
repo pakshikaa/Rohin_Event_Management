@@ -2,63 +2,59 @@ import React from 'react';
 import { useInView } from '../hooks/useInView';
 import './Philosophy.css';
 
-const PRINCIPLES = [
+const PILLARS = [
   {
     num: '01',
-    title: 'We Understand Your Event',
-    desc: 'We begin by understanding your event type, venue, guest flow, and preferred mood.',
+    title: 'We study the room first',
+    desc: 'Guest movement, sight-lines, focal moments, and venue proportion guide every styling decision.',
   },
   {
     num: '02',
-    title: 'We Design the Complete Look',
-    desc: 'Flowers, stage setup, lighting, seating, and photo areas are planned together for one elegant atmosphere.',
+    title: 'We shape atmosphere, not clutter',
+    desc: 'Florals, lighting, textiles, and staging are composed together so the room feels intentional.',
   },
   {
     num: '03',
-    title: 'We Keep It Refined',
-    desc: 'Our style is premium, clean, and balanced - never overcrowded, never random.',
+    title: 'We leave a memory in the space',
+    desc: 'The final environment should feel cinematic in person, not only in photographs.',
   },
 ];
 
 export default function Philosophy() {
-  const [ref, inView] = useInView();
+  const [ref, inView] = useInView({ threshold: 0.15 });
 
   return (
     <section className="philosophy" id="philosophy" ref={ref}>
       <div className={`philosophy__inner ${inView ? 'visible' : ''}`}>
         <div className="philosophy__left">
-          <p className="philosophy__eyebrow">Why Clients Choose ROHIN</p>
+          <p className="philosophy__eyebrow">Our Philosophy</p>
           <h2 className="philosophy__headline">
-            Every event is designed with care,
+            We do not decorate a venue.
             <br />
-            <em>balance, and attention to detail.</em>
+            <em>We tell it.</em>
           </h2>
           <div className="philosophy__divider" />
           <p className="philosophy__body">
-            Our work is not about adding random decoration. It is about creating a complete event
-            environment that feels elegant, personal, and well planned.
+            Every Rohin installation is built to feel composed, elegant, and emotionally legible.
+            We translate a brief into a full guest experience through staging, balance, lighting,
+            and visual rhythm.
           </p>
-          <div className="philosophy__quote">
-            <span className="philosophy__quote-mark">"</span>
-            <p>
-              From the first discussion to the final setup, our goal is to make your event feel
-              beautifully planned, personal, and memorable.
-            </p>
-          </div>
         </div>
 
         <div className="philosophy__right">
-          <div className="philosophy__pillars">
-            {PRINCIPLES.map((p, i) => (
-              <div className="philosophy__pillar" key={p.num} style={{ transitionDelay: `${0.2 + i * 0.15}s` }}>
-                <span className="philosophy__pillar-num">{p.num}</span>
-                <div className="philosophy__pillar-content">
-                  <h3>{p.title}</h3>
-                  <p>{p.desc}</p>
-                </div>
+          {PILLARS.map((pillar, index) => (
+            <article
+              key={pillar.num}
+              className="philosophy__pillar"
+              style={{ transitionDelay: `${0.15 + (index * 0.15)}s` }}
+            >
+              <span className="philosophy__pillar-num">{pillar.num}</span>
+              <div className="philosophy__pillar-copy">
+                <h3>{pillar.title}</h3>
+                <p>{pillar.desc}</p>
               </div>
-            ))}
-          </div>
+            </article>
+          ))}
         </div>
       </div>
     </section>
