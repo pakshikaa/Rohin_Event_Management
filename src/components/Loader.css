@@ -20,7 +20,7 @@
 
 .loader__name {
   margin: 0 0 1.2rem;
-  font-family: 'Playfair Display', serif;
+  font-family: var(--font-display);
   font-size: 2.2rem;
   font-weight: 500;
   letter-spacing: 0.5em;
@@ -38,7 +38,7 @@
 
 .loader__sub {
   margin: 0;
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-body);
   font-size: 0.58rem;
   font-weight: 400;
   letter-spacing: 0.55em;
@@ -48,11 +48,19 @@
 }
 
 @keyframes lFade {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes lGrow {
-  from { width: 0; }
-  to { width: 120px; }
+  from {
+    width: 0;
+  }
+  to {
+    width: 120px;
+  }
 }

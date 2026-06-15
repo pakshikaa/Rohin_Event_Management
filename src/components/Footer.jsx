@@ -4,9 +4,10 @@ import './Footer.css';
 
 export default function Footer() {
   const links = [
+    ['Home', 'hero'],
     ['Philosophy', 'philosophy'],
     ['Portfolio', 'portfolio'],
-    ['Transformations', 'metamorphosis'],
+    ['Services', 'services'],
     ['Testimonials', 'testimonials'],
     ['Contact', 'contact'],
   ];
@@ -38,12 +39,13 @@ export default function Footer() {
         <div className="footer__social">
           <span className="footer__social-label">Social</span>
           <a href={CONTACT.facebookUrl} target="_blank" rel="noopener noreferrer" className="footer__social-link">Facebook</a>
+          <a href={CONTACT.whatsappUrl} target="_blank" rel="noopener noreferrer" className="footer__social-link">WhatsApp</a>
         </div>
       </div>
 
       <div className="footer__bottom">
-        <span>&copy; 2025 Rohin Event Management. All rights reserved.</span>
-        <span>Sangathanai, Chavakachcheri, Jaffna</span>
+        <span>&copy; {new Date().getFullYear()} Rohin Event Management. All rights reserved.</span>
+        <span>Sangaththanai, Kandy Road, Chavakachcheri, Jaffna</span>
       </div>
     </footer>
   );

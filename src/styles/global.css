@@ -8,6 +8,8 @@
   --bg-primary: #FAFAF8;
   --bg-secondary: #F3F1EC;
   --bg-card: #FFFFFF;
+  --bg-dark: #0B1F12;
+  --bg-dark-elevated: #102718;
   --gold: #B8860B;
   --gold-light: #D4A017;
   --gold-dim: rgba(184, 134, 11, 0.12);
@@ -29,10 +31,15 @@
   --emerald-deep: #0D2318;
   --emerald-mid: #224433;
   --ivory-faint: rgba(26, 26, 26, 0.08);
-  --font-display: 'Playfair Display', Georgia, serif;
+  --font-display: 'Inter', system-ui, sans-serif;
   --font-body: 'Inter', system-ui, sans-serif;
   --ease-luxury: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-cinematic: cubic-bezier(0.77, 0, 0.175, 1);
+  --control-radius: 999px;
+  --control-padding-y: 0.82rem;
+  --control-padding-x: 1.25rem;
+  --control-font-size: 0.78rem;
+  --control-letter-spacing: 0.18em;
 }
 
 html {
@@ -96,68 +103,22 @@ img {
   opacity: 0.4;
 }
 
-.page-loader {
-  position: fixed;
-  inset: 0;
-  z-index: 9999;
-  display: grid;
-  place-items: center;
-  background: var(--obsidian);
-  transition: opacity 0.6s ease;
-}
-
-.page-loader--hidden {
-  opacity: 0;
-  pointer-events: none;
-}
-
-.page-loader__content {
-  display: grid;
-  justify-items: center;
-  gap: 0.8rem;
-}
-
-.page-loader__name {
-  font-family: var(--font-display);
-  font-size: 2rem;
-  font-weight: 500;
-  letter-spacing: 0.4em;
-  color: var(--gold);
-}
-
-.page-loader__line {
-  width: 0;
-  height: 1px;
-  background: var(--gold);
-  animation: loaderLine 1.2s forwards;
-}
-
-.page-loader__tag {
-  font-family: var(--font-body);
-  font-size: 0.55rem;
-  font-weight: 300;
-  letter-spacing: 0.5em;
-  color: var(--ivory-dim);
-  animation: loaderFade 0.6s ease 0.8s both;
-}
-
 .section-fallback {
   min-height: 220px;
 }
 
-@keyframes loaderLine {
-  to {
-    width: 120px;
-  }
-}
-
-@keyframes loaderFade {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+.portfolio__filter,
+.birthday-showcase__filter,
+.meta__tab {
+  min-height: 48px;
+  padding: var(--control-padding-y) var(--control-padding-x);
+  border-radius: var(--control-radius);
+  font-family: var(--font-body);
+  font-size: var(--control-font-size);
+  font-weight: 400;
+  letter-spacing: var(--control-letter-spacing);
+  text-transform: uppercase;
+  transition: transform 180ms ease, background 180ms ease, color 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
 }
 
 ::-webkit-scrollbar {

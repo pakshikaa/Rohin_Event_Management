@@ -6,10 +6,8 @@ const LINKS = [
   { label: 'Home', id: 'hero' },
   { label: 'Philosophy', id: 'philosophy' },
   { label: 'Portfolio', id: 'portfolio' },
-  { label: 'Testimonials', id: 'testimonials' },
-  { label: 'Birthdays', id: 'birthdays' },
-  { label: 'Transformations', id: 'metamorphosis' },
   { label: 'Services', id: 'services' },
+  { label: 'Testimonials', id: 'testimonials' },
   { label: 'Contact', id: 'contact' },
 ];
 
@@ -33,7 +31,7 @@ export default function Nav() {
   }, [menuOpen]);
 
   useEffect(() => {
-    const ids = ['hero', 'philosophy', 'portfolio', 'birthdays', 'metamorphosis', 'services', 'testimonials', 'contact'];
+    const ids = ['hero', 'philosophy', 'portfolio', 'metamorphosis', 'services', 'testimonials', 'contact'];
     const observers = ids.map((id) => {
       const el = document.getElementById(id);
       if (!el) return null;
@@ -100,15 +98,19 @@ export default function Nav() {
 
         <ul className="nav__links">{renderedLinks}</ul>
 
-        <a
-          href={CONTACT.whatsappUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="nav__cta"
-          onClick={() => trackWhatsAppClick('nav')}
-        >
-          VIP Concierge
-        </a>
+        <div className="nav__cta-wrap">
+          <a
+            href={CONTACT.vipConciergeUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="nav__cta"
+            onClick={() => trackWhatsAppClick('nav')}
+            title="Opens WhatsApp with a pre-filled VIP concierge planning inquiry."
+          >
+            VIP Concierge
+          </a>
+          <span className="nav__cta-note">Opens WhatsApp with a priority planning message.</span>
+        </div>
 
         <button
           type="button"
@@ -138,14 +140,14 @@ export default function Nav() {
         </div>
 
         <a
-          href={CONTACT.whatsappUrl}
+          href={CONTACT.vipConciergeUrl}
           target="_blank"
           rel="noopener noreferrer"
           className="nav__mobile-cta"
           onClick={() => trackWhatsAppClick('nav_mobile')}
         >
           <span className="nav__mobile-cta-main">VIP Concierge</span>
-          <span className="nav__mobile-cta-note">Begin your event direction on WhatsApp.</span>
+          <span className="nav__mobile-cta-note">Opens WhatsApp with a pre-filled VIP concierge planning inquiry.</span>
         </a>
       </div>
     </nav>

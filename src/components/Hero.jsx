@@ -42,7 +42,7 @@ export default function Hero() {
 
   const ctaCopy = useMemo(
     () => ({
-      primary: 'Begin Your Vision',
+      primary: 'Send Your Date & Venue',
       ghost: 'View Portfolio',
     }),
     []
@@ -72,12 +72,12 @@ export default function Hero() {
 
         <p className="hero__sub">
           Rohin composes wedding environments, elevated celebrations, and guest-facing moments with
-          floral architecture, lighting direction, and a refined sense of atmosphere.
+          floral architecture, layered lighting, and a refined sense of atmosphere for celebrations across Jaffna.
         </p>
 
         <div className="hero__actions">
           <a
-            href={CONTACT.whatsappUrl}
+            href={CONTACT.vipConciergeUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="hero__btn hero__btn--primary"

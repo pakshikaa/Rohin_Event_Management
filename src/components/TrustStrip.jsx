@@ -4,8 +4,8 @@ import './TrustStrip.css';
 const ITEMS = [
   '100+ Events Styled',
   'Weddings & Birthdays',
-  'Serving Sangathanai, Chavakachcheri, Jaffna',
-  'Fast WhatsApp Response',
+  'Serving Sangaththanai, Kandy Road, Chavakachcheri, Jaffna',
+  'Response Within 30 Minutes',
 ];
 
 export default function TrustStrip() {

@@ -74,7 +74,7 @@
 
 .nav__logo-main {
   font-family: var(--font-display);
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   font-weight: 700;
   letter-spacing: 0.2em;
   color: var(--forest);
@@ -99,7 +99,7 @@
 
 .nav__link {
   font-family: var(--font-body);
-  font-size: 0.76rem;
+  font-size: 0.72rem;
   font-weight: 400;
   letter-spacing: 0.12em;
   color: var(--charcoal-mid);
@@ -135,7 +135,7 @@
 
 .nav__cta {
   font-family: var(--font-body);
-  font-size: 0.72rem;
+  font-size: 0.68rem;
   font-weight: 500;
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -152,6 +152,20 @@
 .nav__cta:hover {
   background: var(--forest-light);
   transform: translateY(-1px);
+}
+
+.nav__cta-wrap {
+  display: grid;
+  justify-items: end;
+  gap: 0.35rem;
+}
+
+.nav__cta-note {
+  font-family: var(--font-body);
+  font-size: 0.58rem;
+  letter-spacing: 0.08em;
+  color: var(--charcoal-dim);
+  white-space: nowrap;
 }
 
 .nav__burger {
@@ -276,7 +290,7 @@
   }
 
   .nav__links,
-  .nav__cta {
+  .nav__cta-wrap {
     display: none;
   }
 

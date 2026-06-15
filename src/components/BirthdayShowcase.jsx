@@ -123,32 +123,36 @@ export default function BirthdayShowcase() {
 
   return (
     <section className="birthday-showcase" id="birthdays" ref={ref}>
-      <div className="birthday-showcase__intro">
+      <div className="birthday-showcase__header">
         <div className="birthday-showcase__copy">
           <p className="birthday-showcase__eyebrow">Birthday Collections</p>
           <h2 className="birthday-showcase__headline">
-            Birthday celebration setups
-            <br />
-            <em>for first birthdays, kids parties, and milestone nights.</em>
+            Birthday Decoration
+            {' '}
+            <em>Portfolio</em>
           </h2>
           <p className="birthday-showcase__sub">
-            Browse birthday setups by celebration type so you can quickly judge the mood, finish,
-            and event atmosphere that fits your family celebration.
+            Explore selected birthday setups for first birthdays, kids parties, and milestone celebrations,
+            with premium backdrops, balloon styling, and photo-ready focal setups.
           </p>
         </div>
 
-        <div className="birthday-showcase__summary">
-          <span>{filtered.length} featured birthday setups</span>
-          <span>{active === 'All' ? 'First birthdays to milestone celebrations' : active}</span>
-        </div>
+        <aside className="birthday-showcase__proof">
+          <span className="birthday-showcase__proof-label">Selected Birthday Work</span>
+          <p>
+            First birthday, kids theme, milestone, and luxury celebration concepts styled for memorable family events.
+          </p>
+        </aside>
       </div>
 
-      <div className="birthday-showcase__filters">
+      <div className="birthday-showcase__filters" role="tablist" aria-label="Birthday portfolio filters">
         {CATEGORIES.map((category) => (
           <button
             key={category}
+            type="button"
             className={`birthday-showcase__filter ${active === category ? 'active' : ''}`}
             onClick={() => setActive(category)}
+            aria-pressed={active === category}
           >
             {category}
           </button>
@@ -157,19 +161,19 @@ export default function BirthdayShowcase() {
 
       {highlight ? (
         <article className="birthday-showcase__highlight">
+          <div className="birthday-showcase__highlight-media">
+            <img
+              src={highlight.image}
+              alt={`${highlight.title} birthday decoration setup with premium backdrop, lighting, and celebration styling by Rohin Event Management`}
+              loading="eager"
+              style={{ objectPosition: highlight.objectPosition }}
+            />
+          </div>
+
           <div className="birthday-showcase__highlight-copy">
             <span className="birthday-showcase__highlight-label">Featured setup</span>
             <h3>{highlight.title}</h3>
             <p>{highlight.tag}</p>
-          </div>
-
-          <div className="birthday-showcase__highlight-media">
-            <img
-              src={highlight.image}
-              alt={highlight.title}
-              loading="eager"
-              style={{ objectPosition: highlight.objectPosition }}
-            />
           </div>
         </article>
       ) : null}
@@ -185,7 +189,7 @@ export default function BirthdayShowcase() {
               <img
                 className="birthday-showcase__image"
                 src={item.image}
-                alt={item.title}
+                alt={`${item.title} birthday setup styled by Rohin Event Management with balloon work, backdrop design, and photo-ready staging`}
                 loading="lazy"
                 style={{ objectPosition: item.objectPosition }}
               />

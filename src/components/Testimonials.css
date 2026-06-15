@@ -96,6 +96,12 @@
   color: var(--forest);
 }
 
+.testimonials__avatar--champagne { background: linear-gradient(135deg, rgba(212, 175, 55, 0.18), rgba(255, 255, 255, 0.8)); }
+.testimonials__avatar--ivory { background: linear-gradient(135deg, rgba(255, 255, 255, 0.92), rgba(212, 175, 55, 0.12)); }
+.testimonials__avatar--sage { background: linear-gradient(135deg, rgba(23, 53, 36, 0.16), rgba(212, 175, 55, 0.08)); }
+.testimonials__avatar--rose { background: linear-gradient(135deg, rgba(214, 169, 166, 0.28), rgba(255, 255, 255, 0.84)); }
+.testimonials__avatar--forest { background: linear-gradient(135deg, rgba(23, 53, 36, 0.24), rgba(255, 255, 255, 0.78)); }
+
 .testimonials__name,
 .testimonials__event {
   margin: 0;

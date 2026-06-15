@@ -5,27 +5,48 @@ import './Testimonials.css';
 const TESTIMONIALS = [
   {
     type: 'Wedding',
-    quote: 'The venue felt elevated the moment guests walked in. Every floral and lighting detail felt composed.',
-    name: 'K & T',
+    quote: 'Rohin transformed our reception at Tilko Hall with a jasmine-toned aisle, layered candlelight, and a stage composition that looked even richer after sunset.',
+    name: 'K. & T.',
     label: 'Wedding Reception, Jaffna',
-    initials: 'KT',
+    avatar: 'KT',
+    tone: 'champagne',
+    icon: 'floral',
+  },
+  {
+    type: 'Wedding',
+    quote: 'For our December celebration in Chavakachcheri, the floral arch, draped backdrop, and guest table styling felt balanced and deeply premium without becoming crowded.',
+    name: 'S. Tharmila',
+    label: 'Wedding Hall Styling, Chavakachcheri',
+    avatar: 'ST',
+    tone: 'ivory',
     icon: 'floral',
   },
   {
     type: 'Corporate',
-    quote: 'Rohin gave the stage presence and polish we needed without making the room feel cold or generic.',
-    name: 'Brand Team',
+    quote: 'The stage architecture for our brand event at Jaffna made the LED content, podium, and product reveal feel polished from every camera angle.',
+    name: 'Arun Prakash',
     label: 'Corporate Launch, Jaffna',
-    initials: 'BT',
+    avatar: 'AP',
+    tone: 'sage',
     icon: 'building',
   },
   {
     type: 'Celebration',
-    quote: 'The setup felt premium in person and photographed beautifully from every corner of the room.',
-    name: 'A & S',
-    label: 'Milestone Evening, Kokkuvil',
-    initials: 'AS',
+    quote: 'Our daughter’s first birthday setup had the exact pastel balance we asked for. The cake table, name signage, and balloon depth photographed beautifully all evening.',
+    name: 'Nirosha & Kavin',
+    label: 'First Birthday, Sangaththanai',
+    avatar: 'NK',
+    tone: 'rose',
     icon: 'floral',
+  },
+  {
+    type: 'Stage',
+    quote: 'The before-and-after difference in our venue was dramatic. Rohin handled the focal wall, lighting mood, and guest walkthrough so the room felt fully intentional.',
+    name: 'M. Jegan',
+    label: 'Milestone Celebration, Jaffna',
+    avatar: 'MJ',
+    tone: 'forest',
+    icon: 'building',
   },
 ];
 
@@ -87,7 +108,7 @@ export default function Testimonials() {
         </blockquote>
 
         <div className="testimonials__author">
-          <span className="testimonials__avatar">{current.initials}</span>
+          <span className={`testimonials__avatar testimonials__avatar--${current.tone}`}>{current.avatar}</span>
           <div>
             <p className="testimonials__name">{current.name}</p>
             <p className="testimonials__event">{current.label}</p>

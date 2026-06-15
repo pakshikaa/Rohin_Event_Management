@@ -1,6 +1,7 @@
-import React, { Suspense, lazy } from 'react';
+import React, { Suspense, lazy, useState } from 'react';
 import Cursor from './components/Cursor';
 import GoldDust from './components/GoldDust';
+import Loader from './components/Loader';
 import Nav from './components/Nav';
 import Hero from './components/Hero';
 import TrustStrip from './components/TrustStrip';
@@ -20,8 +21,11 @@ function SectionFallback() {
 }
 
 export default function App() {
+  const [loaded, setLoaded] = useState(false);
+
   return (
     <>
+      {!loaded && <Loader onDone={() => setLoaded(true)} />}
       <Cursor />
       <GoldDust />
       <Nav />

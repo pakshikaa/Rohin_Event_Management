@@ -1,24 +1,21 @@
 .birthday-showcase {
   position: relative;
-  padding: 1rem 6vw 7rem;
-  background:
-    radial-gradient(circle at top left, rgba(244, 203, 165, 0.18), transparent 32%),
-    linear-gradient(180deg, rgba(251, 246, 238, 0.98), rgba(244, 235, 224, 0.94));
+  padding: 7.5rem 3rem 8rem;
+  background: var(--bg-secondary);
 }
 
-.birthday-showcase__intro,
+.birthday-showcase__header,
 .birthday-showcase__filters,
 .birthday-showcase__highlight,
 .birthday-showcase__grid,
 .birthday-showcase__footer {
-  max-width: 1360px;
-  margin-left: auto;
-  margin-right: auto;
+  max-width: 1320px;
+  margin: 0 auto;
 }
 
-.birthday-showcase__intro {
+.birthday-showcase__header {
   display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(18rem, 0.65fr);
+  grid-template-columns: minmax(0, 1fr) minmax(360px, 420px);
   gap: 2rem;
   align-items: end;
   margin-bottom: 2.5rem;
@@ -30,93 +27,91 @@
   font-weight: 500;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: rgba(123, 91, 52, 0.78);
+  color: var(--gold);
 }
 
 .birthday-showcase__headline {
   margin: 0;
   font-family: var(--font-display);
-  font-size: clamp(3.5rem, 4.6vw, 4rem);
+  font-size: clamp(2.25rem, 4.6vw, 4.875rem);
   font-weight: 600;
   line-height: 1.02;
-  color: #25180f;
+  color: var(--charcoal);
 }
 
 .birthday-showcase__headline em {
-  font-style: italic;
-  font-weight: 500;
-  color: #7d5f43;
+  font-style: normal;
+  font-weight: 700;
+  color: var(--forest);
 }
 
 .birthday-showcase__sub {
   max-width: 52rem;
-  margin: 1.4rem 0 0;
-  font-size: 1.1rem;
+  margin: 1.2rem 0 0;
+  font-size: 1.05rem;
   line-height: 1.75;
-  color: rgba(49, 34, 19, 0.74);
+  color: var(--charcoal-mid);
 }
 
-.birthday-showcase__summary {
+.birthday-showcase__proof {
   display: grid;
   gap: 0.7rem;
   padding: 1.4rem 1.5rem;
-  border: 1px solid rgba(113, 82, 48, 0.14);
-  border-radius: 1.8rem;
-  background: rgba(255, 252, 246, 0.72);
-  box-shadow: 0 20px 40px rgba(90, 68, 41, 0.08);
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  box-shadow: 0 20px 40px rgba(26, 26, 26, 0.05);
+  border-radius: 22px;
 }
 
-.birthday-showcase__summary span:first-child {
+.birthday-showcase__proof-label {
+  font-family: var(--font-body);
   font-size: 0.82rem;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: rgba(92, 69, 42, 0.66);
+  color: var(--gold);
 }
 
-.birthday-showcase__summary span:last-child {
-  font-family: var(--font-display);
-  font-size: 1.7rem;
-  line-height: 1.1;
-  color: #2f2014;
+.birthday-showcase__proof p {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 0.98rem;
+  line-height: 1.7;
+  color: var(--charcoal-mid);
 }
 
 .birthday-showcase__filters {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.8rem;
-  margin-bottom: 1.5rem;
+  gap: 0.55rem;
+  margin-bottom: 2rem;
 }
 
 .birthday-showcase__filter {
-  padding: 0.75rem 1.15rem;
-  border: 1px solid rgba(92, 69, 42, 0.14);
-  border-radius: 999px;
-  background: rgba(255, 251, 246, 0.76);
-  color: #4d3720;
-  font-size: 0.92rem;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  color: var(--charcoal-mid);
   cursor: pointer;
-  transition: transform 180ms ease, background 180ms ease, color 180ms ease, border-color 180ms ease;
 }
 
 .birthday-showcase__filter:hover,
 .birthday-showcase__filter.active {
-  transform: translateY(-2px);
-  background: #3e2918;
-  color: #fff3ea;
-  border-color: #3e2918;
+  background: var(--forest);
+  color: var(--white);
+  border-color: var(--forest);
 }
 
 .birthday-showcase__highlight {
   display: grid;
-  grid-template-columns: minmax(18rem, 0.7fr) minmax(0, 1.3fr);
-  gap: 1.25rem;
-  margin-bottom: 1.5rem;
+  grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.8fr);
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  align-items: stretch;
 }
 
 .birthday-showcase__highlight-copy,
 .birthday-showcase__highlight-media,
 .birthday-showcase__frame {
-  border-radius: 2rem;
+  border-radius: 1.4rem;
   overflow: hidden;
 }
 
@@ -126,36 +121,35 @@
   justify-content: center;
   gap: 0.95rem;
   padding: 2rem;
-  background:
-    radial-gradient(circle at top left, rgba(188, 122, 56, 0.16), transparent 32%),
-    rgba(255, 248, 241, 0.92);
-  border: 1px solid rgba(115, 83, 47, 0.12);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  box-shadow: 0 18px 42px rgba(26, 26, 26, 0.06);
 }
 
 .birthday-showcase__highlight-label {
   font-size: 0.72rem;
   letter-spacing: 0.28em;
   text-transform: uppercase;
-  color: rgba(77, 55, 32, 0.62);
+  color: var(--charcoal-dim);
 }
 
 .birthday-showcase__highlight-copy h3 {
   margin: 0;
   font-family: var(--font-display);
-  font-size: clamp(2.1rem, 4vw, 3.3rem);
-  line-height: 0.94;
-  color: #2e1f13;
+  font-size: clamp(2rem, 3.2vw, 3rem);
+  line-height: 1;
+  color: var(--charcoal);
 }
 
 .birthday-showcase__highlight-copy p {
   margin: 0;
   line-height: 1.75;
-  color: rgba(49, 34, 19, 0.72);
+  color: var(--charcoal-mid);
 }
 
 .birthday-showcase__highlight-media {
-  min-height: 29rem;
-  box-shadow: 0 24px 56px rgba(96, 69, 36, 0.12);
+  min-height: 28rem;
+  box-shadow: 0 24px 56px rgba(26, 26, 26, 0.08);
 }
 
 .birthday-showcase__highlight-media img,
@@ -169,7 +163,7 @@
 .birthday-showcase__grid {
   display: grid;
   grid-template-columns: repeat(12, minmax(0, 1fr));
-  gap: 1rem;
+  gap: 24px;
 }
 
 .birthday-showcase__card {
@@ -214,8 +208,9 @@
 
 .birthday-showcase__frame {
   position: relative;
-  background: #eadccc;
-  box-shadow: 0 18px 42px rgba(43, 28, 15, 0.1);
+  background: var(--bg-secondary);
+  box-shadow: 0 18px 42px rgba(26, 26, 26, 0.08);
+  border-radius: 24px;
 }
 
 .birthday-showcase__frame::after {
@@ -240,8 +235,8 @@
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(180deg, rgba(18, 12, 8, 0.06) 0%, rgba(18, 12, 8, 0.18) 34%, rgba(18, 12, 8, 0.88) 100%),
-    linear-gradient(120deg, color-mix(in srgb, var(--accent) 28%, transparent), transparent 58%);
+    linear-gradient(180deg, rgba(11, 31, 18, 0.06) 0%, rgba(11, 31, 18, 0.18) 34%, rgba(11, 31, 18, 0.88) 100%),
+    linear-gradient(120deg, rgba(212, 175, 55, 0.08), transparent 58%);
 }
 
 .birthday-showcase__content {
@@ -291,7 +286,7 @@
   max-width: 46rem;
   margin: 0;
   line-height: 1.75;
-  color: rgba(49, 34, 19, 0.7);
+  color: var(--charcoal-mid);
 }
 
 .birthday-showcase__cta {
@@ -299,8 +294,8 @@
   align-items: center;
   justify-content: center;
   padding: 0.95rem 1.4rem;
-  border-radius: 999px;
-  background: #27190f;
+  border-radius: var(--control-radius);
+  background: var(--forest);
   color: #fff4e8;
   text-decoration: none;
   white-space: nowrap;
@@ -324,16 +319,16 @@
 
 .birthday-showcase__cta:hover {
   transform: translateY(-2px);
-  background: #3c2719;
+  background: var(--forest-light);
 }
 
 @media (max-width: 1100px) {
-  .birthday-showcase__intro,
+  .birthday-showcase__header,
   .birthday-showcase__highlight {
     grid-template-columns: 1fr;
   }
 
-  .birthday-showcase__summary {
+  .birthday-showcase__proof {
     max-width: 26rem;
   }
 
@@ -353,13 +348,14 @@
 
   .birthday-showcase__footer {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: stretch;
+    text-align: left;
   }
 }
 
 @media (max-width: 720px) {
   .birthday-showcase {
-    padding: 0 1.1rem 5rem;
+    padding: 6rem 1rem 5.5rem;
   }
 
   .birthday-showcase__grid {
@@ -377,15 +373,20 @@
   .birthday-showcase__card--wide .birthday-showcase__frame,
   .birthday-showcase__card--medium .birthday-showcase__frame,
   .birthday-showcase__card--small .birthday-showcase__frame {
-    min-height: 18rem;
+    min-height: 16.5rem;
   }
 
   .birthday-showcase__headline {
-    font-size: clamp(2.5rem, 10vw, 3rem);
+    font-size: clamp(2.15rem, 10vw, 2.65rem);
   }
 
-  .birthday-showcase__summary span:last-child {
-    font-size: 1.35rem;
+  .birthday-showcase__proof {
+    padding: 1.15rem;
+  }
+
+  .birthday-showcase__cta {
+    width: 100%;
+    padding: 1rem 1.1rem;
   }
 }
 
@@ -399,36 +400,75 @@
   .birthday-showcase__filter {
     width: 100%;
     text-align: center;
-    padding: 0.75rem 0.85rem;
+  }
+
+  .birthday-showcase__footer {
+    gap: 1rem;
+  }
+
+  .birthday-showcase__footer p {
+    font-size: 0.98rem;
+    line-height: 1.65;
+  }
+
+  .birthday-showcase__cta {
+    min-height: 68px;
+    border-radius: 999px;
+  }
+
+  .birthday-showcase__cta-copy {
+    width: 100%;
+    gap: 0.12rem;
+  }
+
+  .birthday-showcase__cta-copy > span:first-child {
     font-size: 0.88rem;
+    font-weight: 600;
+    line-height: 1.2;
+    text-align: center;
+  }
+
+  .birthday-showcase__cta-note {
+    font-size: 0.7rem;
+    line-height: 1.3;
+    text-align: center;
   }
 
   .birthday-showcase__highlight-copy {
     padding: 1.25rem;
-    border-radius: 1.4rem;
+    border-radius: 1.1rem;
   }
 
   .birthday-showcase__highlight-copy h3 {
-    font-size: 2rem;
+    font-size: 1.75rem;
   }
 
   .birthday-showcase__highlight-media {
-    min-height: 18rem;
-    border-radius: 1.4rem;
+    min-height: 16rem;
+    border-radius: 1.1rem;
   }
 
   .birthday-showcase__card--large .birthday-showcase__frame,
   .birthday-showcase__card--wide .birthday-showcase__frame,
   .birthday-showcase__card--medium .birthday-showcase__frame,
   .birthday-showcase__card--small .birthday-showcase__frame {
-    min-height: 16rem;
+    min-height: 15rem;
   }
 
   .birthday-showcase__content {
-    padding: 1.15rem;
+    padding: 1rem;
   }
 
   .birthday-showcase__tag {
-    font-size: 0.96rem;
+    font-size: 0.88rem;
+    line-height: 1.55;
+  }
+
+  .birthday-showcase__content h3 {
+    font-size: 1.3rem;
+  }
+
+  .birthday-showcase__category {
+    font-size: 0.72rem;
   }
 }
