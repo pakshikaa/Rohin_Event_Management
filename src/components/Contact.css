@@ -98,8 +98,8 @@
 }
 
 .contact__details {
-  display: flex;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) 1px minmax(180px, 0.72fr) 1px minmax(0, 1.15fr);
   align-items: stretch;
   border: 1px solid rgba(245, 240, 232, 0.15);
   background: rgba(255, 255, 255, 0.04);
@@ -110,7 +110,8 @@
 .contact__detail {
   display: grid;
   gap: 0.4rem;
-  padding: 0 2rem;
+  padding: 0 1.5rem;
+  align-content: center;
 }
 
 .contact__detail-label {
@@ -129,6 +130,24 @@
   line-height: 1.75;
   color: #F5F0E8;
   min-width: 0;
+}
+
+.contact__detail--location .contact__detail-value {
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+.contact__detail--phone .contact__detail-value,
+.contact__detail--email .contact__detail-value {
+  white-space: nowrap;
+}
+
+.contact__detail--phone .contact__detail-value {
+  font-size: 0.94rem;
+}
+
+.contact__detail--email .contact__detail-value {
+  font-size: 0.88rem;
 }
 
 .contact__detail-link {
@@ -182,7 +201,7 @@
   }
 
   .contact__details {
-    flex-direction: column;
+    grid-template-columns: 1fr;
     gap: 1rem;
     padding: 1.5rem;
   }
@@ -209,13 +228,32 @@
     max-width: 100%;
     font-size: 0.92rem;
     line-height: 1.55;
-    white-space: normal;
     overflow-wrap: anywhere;
     text-align: center;
+  }
+
+  .contact__detail--phone .contact__detail-value {
+    font-size: 0.9rem;
+    white-space: nowrap;
+    overflow-wrap: normal;
+  }
+
+  .contact__detail--email .contact__detail-value {
+    white-space: normal;
   }
 }
 
 @media (max-width: 400px) {
+  .contact__whatsapp {
+    width: 100%;
+    justify-content: center;
+    padding: 15px 20px;
+  }
+
+  .contact__whatsapp span {
+    text-align: center;
+  }
+
   .contact__details {
     gap: 1.2rem;
   }

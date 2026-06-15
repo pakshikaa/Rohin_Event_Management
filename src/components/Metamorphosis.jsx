@@ -8,8 +8,8 @@ const SCENARIOS = [
     id: 1,
     label: 'Wedding Signature',
     title: 'Luxury Wedding Reception',
-    beforeImage: '/images/transformation/wedding-before.png',
-    afterImage: '/images/transformation/wedding-after.png',
+    beforeImage: '/images/transformation/wedding-before.jpg',
+    afterImage: '/images/transformation/wedding-after.jpg',
     accent: '#dcb79b',
     requirements: [
       'Floral stage styling',
@@ -22,8 +22,8 @@ const SCENARIOS = [
     id: 2,
     label: 'Birthday Signature',
     title: 'Luxury Birthday Celebration',
-    beforeImage: '/images/transformation/birthday-before.png',
-    afterImage: '/images/transformation/birthday-after.png',
+    beforeImage: '/images/transformation/birthday-before.jpg',
+    afterImage: '/images/transformation/birthday-after.jpg',
     accent: '#e7c1cb',
     requirements: [
       'Balloon installation',
@@ -91,6 +91,8 @@ function Slider({ scenario }) {
           className="meta__image meta__image--before"
           src={scenario.beforeImage}
           alt={`${scenario.title} before decoration view`}
+          loading="lazy"
+          decoding="async"
           draggable="false"
         />
         <div className="meta__dust" />
@@ -112,6 +114,8 @@ function Slider({ scenario }) {
           className="meta__image meta__image--after"
           src={scenario.afterImage}
           alt={`${scenario.title} after Rohin decoration`}
+          loading="lazy"
+          decoding="async"
           draggable="false"
         />
         <div className="meta__lights" style={{ '--meta-accent': scenario.accent }} />

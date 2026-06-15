@@ -40,17 +40,17 @@ export default function Contact() {
         </p>
 
         <div className="contact__details">
-          <div className="contact__detail">
+          <div className="contact__detail contact__detail--location">
             <span className="contact__detail-label">Location</span>
             <span className="contact__detail-value">{CONTACT.location}</span>
           </div>
           <div className="contact__detail-divider" />
-          <div className="contact__detail">
+          <div className="contact__detail contact__detail--phone">
             <span className="contact__detail-label">Telephone</span>
             <a href={`tel:+${CONTACT.whatsappNumber}`} className="contact__detail-value contact__detail-link">+94 76 717 1454</a>
           </div>
           <div className="contact__detail-divider" />
-          <div className="contact__detail">
+          <div className="contact__detail contact__detail--email">
             <span className="contact__detail-label">Email</span>
             <a href={`mailto:${CONTACT.email}`} className="contact__detail-value contact__detail-link">{CONTACT.email}</a>
           </div>

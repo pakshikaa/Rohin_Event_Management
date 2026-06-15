@@ -7,7 +7,7 @@ export const PORTFOLIO_ITEMS = [
   {
     id: 1,
     title: 'Floral Stage Styling',
-    tag: 'Wedding Reception · Jaffna',
+    tag: 'Wedding Reception - Jaffna',
     label: 'Real event decoration setup',
     filters: ['Wedding'],
     size: 'large',
@@ -18,7 +18,7 @@ export const PORTFOLIO_ITEMS = [
   {
     id: 2,
     title: 'Gold & Ivory Backdrop',
-    tag: 'Engagement · Nallur',
+    tag: 'Engagement - Nallur',
     label: 'Selected engagement styling',
     filters: ['Engagement'],
     size: 'small',
@@ -28,19 +28,19 @@ export const PORTFOLIO_ITEMS = [
   },
   {
     id: 3,
-    title: 'Bride-to-Be Sunset Setup',
-    tag: 'Bride to Be · Jaffna',
-    label: 'Premium bridal photo area',
+    title: 'Floral Lounge Seating',
+    tag: 'Wedding Lounge - Jaffna',
+    label: 'Premium floral lounge composition',
     filters: ['Bride to Be'],
     size: 'small',
-    imageSrc: '/images/weddings/bride-to-be-sunset.jpeg',
+    imageSrc: '/images/weddings/wedding-floral-lounge.jpeg',
     objectPosition: 'center center',
     bg: 'linear-gradient(120deg,#2a1a1a,#3a1f1f)',
   },
   {
     id: 4,
     title: 'Mandap Floral Work',
-    tag: 'Hindu Wedding · Chavakachcheri',
+    tag: 'Hindu Wedding - Chavakachcheri',
     label: 'Traditional stage styling',
     filters: ['Hindu Wedding'],
     size: 'medium',
@@ -51,7 +51,7 @@ export const PORTFOLIO_ITEMS = [
   {
     id: 5,
     title: 'Mehndi Colour Wall',
-    tag: 'Mehndi · Jaffna',
+    tag: 'Mehndi - Jaffna',
     label: 'Color-led celebration setup',
     filters: ['Mehndi'],
     size: 'medium',
@@ -62,7 +62,7 @@ export const PORTFOLIO_ITEMS = [
   {
     id: 6,
     title: 'Beach Ceremony Design',
-    tag: 'Destination Wedding · Northern Coast',
+    tag: 'Destination Wedding - Northern Coast',
     label: 'Destination ceremony styling',
     filters: ['Destination', 'Wedding'],
     size: 'large',
@@ -73,7 +73,7 @@ export const PORTFOLIO_ITEMS = [
   {
     id: 7,
     title: 'Iyer Ritual Styling',
-    tag: 'Iyer Wedding · Jaffna',
+    tag: 'Iyer Wedding - Jaffna',
     label: 'Sacred ritual-focused setup',
     filters: ['Iyer Wedding'],
     size: 'medium',
@@ -84,7 +84,7 @@ export const PORTFOLIO_ITEMS = [
   {
     id: 8,
     title: 'Neon Couple Lounge',
-    tag: 'Wedding Lounge · Jaffna',
+    tag: 'Wedding Lounge - Jaffna',
     label: 'Modern reception photo corner',
     filters: ['Wedding', 'Engagement'],
     size: 'small',
@@ -156,6 +156,7 @@ export default function Portfolio() {
                   src={item.imageSrc}
                   alt={`${item.tag} featuring ${item.title.toLowerCase()} by Rohin Event Management`}
                   loading="lazy"
+                  decoding="async"
                   className="portfolio__image"
                   style={{ objectPosition: item.objectPosition || 'center center' }}
                 />

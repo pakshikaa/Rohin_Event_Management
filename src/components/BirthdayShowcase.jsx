@@ -165,7 +165,8 @@ export default function BirthdayShowcase() {
             <img
               src={highlight.image}
               alt={`${highlight.title} birthday decoration setup with premium backdrop, lighting, and celebration styling by Rohin Event Management`}
-              loading="eager"
+              loading="lazy"
+              decoding="async"
               style={{ objectPosition: highlight.objectPosition }}
             />
           </div>
@@ -191,6 +192,7 @@ export default function BirthdayShowcase() {
                 src={item.image}
                 alt={`${item.title} birthday setup styled by Rohin Event Management with balloon work, backdrop design, and photo-ready staging`}
                 loading="lazy"
+                decoding="async"
                 style={{ objectPosition: item.objectPosition }}
               />
               <div className="birthday-showcase__wash" style={{ '--accent': item.accent }} />
